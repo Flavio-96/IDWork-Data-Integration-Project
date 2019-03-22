@@ -1,2 +1,23 @@
-# Progetto-IDW-18-19
-Repo in cui viene raccolto il materiale relativo al progetto di Integrazione Dati sul Web 
+# Progetto-IDW-18-19 :bowtie:	
+
+## Idea progetto
+
+### Specifica problema
+
+### Descrizione funzionale
+
+## Architettura piattaforma
+
+## Fonti scelte (quante fonti?)
+
+### LinkedIn
+
+### GitHub
+
+### Medium
+
+### Coursera (?)
+
+
+
+
