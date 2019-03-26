@@ -6,9 +6,30 @@
 
 # Progetto-IDW-18-19 :bowtie:	
 
+<English platform>
+
 ## Idea progetto
 
 ### Specifica problema
+
+<Boost del mercato>
+
+Al giorno d'oggi esistono molte piattaforme che hanno dato notevole slancio al mondo del lavoro e aperto ulteriormente il mercato dietro ad esso.\
+L'ambito nel quale viviamo è cambiato: siamo circondati da tecnologie sempre più moderne grazie alle quali siamo interconnessi globalmente.\
+È vero, infatti, che risulta molto più semplice sia per le aziende trovare  il candidato giusto, sia per i professionisti imbattarsi in opportunità di lavoro adatte ai propri interessi e alle proprie competenze.\
+Questo contesto ha però introdotto **nuove problematiche** da affrontare.
+
+Può capitare di trovarsi di fronte alle offerte lavorative più disparate per compenso, aziende, luogo di lavoro, ambito lavorativo, competenze richieste, e chiedersi se la proposta o l'inserzione che si sta esaminando sia ciò che fa per sè.\
+Le domande che ci si pone sono varie: 
+* Il compenso è giusto?
+* È l'azienda che fa per me?
+* Quali sono le mie aspettative future?
+* Sono disposto a trasferirmi?
+* Come posso prepararmi al meglio all'interview?
+* ...
+
+e \<nome app\> vuole aiutarti a trovare una risposta ad ognuno di questi quesiti.\
+Quello che si vuole fornire con l'applicazione è una visione chiara dell'offerta in sè, ma anche di quegli altri fattori non immediatamente visibili su cui ruota la scelta finale: \<nome app\> vuole essere la piattaforma di riferimento per chi cerca lavoro e vuole farlo nel modo più sereno possibile.
 
 ### Descrizione funzionale
 
