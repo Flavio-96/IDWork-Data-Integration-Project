@@ -4,9 +4,32 @@
     </a>
 </p>
 
-# Progetto-IDW-18-19 :bowtie:	
+- [Progetto-IDW-18-19 :bowtie:](#progetto-idw-18-19-bowtie)
+  - [Idea progetto](#idea-progetto)
+    - [Specifica problema](#specifica-problema)
+    - [Descrizione funzionale](#descrizione-funzionale)
+  - [Architettura piattaforma](#architettura-piattaforma)
+  - [Fonti scelte (quante fonti?)](#fonti-scelte-quante-fonti)
+    - [LinkedIn](#linkedin)
+    - [GitHub](#github)
+    - [Medium](#medium)
+    - [Coursera (?)](#coursera)
+    - [Numbeo](#numbeo)
+    - [Glassdoor (?)](#glassdoor)
+    - [Indeed](#indeed)
+    - [Payscale](#payscale)
+  - [Risorse utili](#risorse-utili)
 
+
+# Progetto-IDW-18-19 :bowtie:	
 <English platform>
+
+- [x] Specifica del problema
+- [x] Architettura
+- [ ] Nome progetto
+- [ ] Scelta fonti (?)
+- [ ] Descrizione funzionale
+
 
 ## Idea progetto
 
@@ -33,7 +56,23 @@ Quello che si vuole fornire con l'applicazione è una visione chiara dell'offert
 
 ### Descrizione funzionale
 
+Di seguito sono descritte le varie funzionalità offerte dalla piattaforma.
+Le funzionalità sono relative ai lavori nel campo dell'IT.
+
+- La piattaforma permette di ricercare le offerte di lavoro rispetto a una **particolare professione** dell'IT di interesse (Ci vuole una lista di piattaforme dell'IT???)
+- La piattaforma permette di ricercare le offerte di lavoro rispetto a una **particolare località** specificando il raggio entro il quale mostrare le offerte (come fare per determinare solo quelle dell'IT???)
+- La piattaforma permette di ricercare le offerte di lavoro rispetto a una **particolare azienda** di interesse (trovare solo le aziende dell'IT???)
+  - Ricevere su queste delle informazioni riguardo:
+    - Stima del compenso del lavoro proposto
+    - Informazioni sul costo della vita relativo al luogo dell'offerta
+    - Poter consultare reviews riguardo l'azienda (facile indeed)
+    - Informazioni sulle interview sostenute in passato (consigli etc, glassdoor scraping?)
+    - Stime delle prospettive future riguardo il lavoro (previsione in base all'esperienza - payscale)
+    - Informazioni sulle competenze richieste per il lavoro e fonti per aprofondire e prepararsi riguardo quest'ultime come repositories, corsi online , (frameworks ?) 
+
 ## Architettura piattaforma
+
+![Architettura piattaforma](/images/architecture.jpg)
 
 ## Fonti scelte (quante fonti?)
 
@@ -76,7 +115,7 @@ Per ulteriori dettagli, https://www.programmableweb.com/api/indeed e http://open
 Payscale è una piattaforma in grado di offrire informazioni sui salari medi per ogni lavoro in ogni parte del mondo.
 
 
-### Risorse utili
+## Risorse utili
 
 https://olery.com/blog/the-best-travel-apis-discover-contribute/
 
