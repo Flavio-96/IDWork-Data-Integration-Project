@@ -1,4 +1,4 @@
-- [Progetto-IDW-18-19 :bowtie:](#progetto-idw-18-19-bowtie)
+- [IDealJob ~ Progetto-IDW-18-19 :bowtie:](#idealjob--progetto-idw-18-19-bowtie)
   - [Idea progetto](#idea-progetto)
     - [Specifica problema](#specifica-problema)
     - [Descrizione funzionale](#descrizione-funzionale)
@@ -15,14 +15,18 @@
   - [Risorse utili](#risorse-utili)
 
 
-# Progetto-IDW-18-19 :bowtie:	
+# IDealJob ~ Progetto-IDW-18-19 :bowtie:	
 <English platform>
 
+Nome progetto **IDealJob\***
+
+\*ID(Integrazione dati), Lavoro ideale in base alle proprio preferenze.
+
 - [x] Specifica del problema
-- [x] Architettura
-- [ ] Nome progetto
-- [ ] Scelta fonti (?)
-- [ ] Descrizione funzionale
+- [x] Architettura (Buona bozza, bisogna cambiare qualcosina)
+- [x] Nome progetto
+- [ ] Scelta fonti (**Quali dobbiamo cambiare?**)
+- [ ] Descrizione funzionale (**definitiva?**)
 
 
 ## Idea progetto
