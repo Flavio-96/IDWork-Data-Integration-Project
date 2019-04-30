@@ -125,7 +125,10 @@ ___
 
 Adzuna è un aggregatore di offerte di lavoro operante in tutto il mondo. Esso combina migliaia di fonti diverse su un unico portale offrendo così una vasta scelta per quando si ricerca un lavoro.​
 
-***Inserire doc api e keys***
+[Documentazione](https://developer.adzuna.com/overview)
+
+**Application ID:** 08190ca0
+**Application Key:** a6bad673c3a2f2875ec76371415a7270
 
 ### 1.5.2. Numbeo
 
@@ -133,15 +136,13 @@ Numbeo è il più grande database al mondo di informazioni su città e nazioni, 
 
 Numbeo mette a disposizione delle API per interagire con il suo database. 
 
-Per ulteriori dettagli, https://www.numbeo.com/common/api.jsp
+[Documentazione](https://www.numbeo.com/common/api.jsp)
 
-***Inserire keys***
+**Application Key:** y6bfz7p8k6vbw7
 
 ### 1.5.3. SimplyHired
 
 SimplyHired  è una piattaforma che permette di consultare le statistiche sui valori dei salari medi per ogni professione sul territorio statunitense, in base al proprio grado di esperienza.
-
-***Inserire doc api e keys***
 
 ### 1.5.4. edX
 
@@ -149,7 +150,9 @@ edX  è una piattaforma per l’apprendimento fondata dal MIT e dall’universit
 
 Le fonti sono inoltre verificate
 
-***Inserire doc api e keys(?)***
+[Documentazione](https://course-catalog-api-guide.readthedocs.io/en/latest/index.html)
+**API Client ID:** M5D86eK9MfUJssKPrmtFeagHyJCHsZDI8nYI7qzm
+**API Client Secret:** zsObnR8AxRm3RR4Yl4O3RQH5dKIh4lwr90E6AIOB7N1KsRHE3ru1tihmntom0qzQoPCJVd39x0HlYXLNwPvCQ6IgFgsoKU4l4njh7jiyxEPIrGyL0YnrUQEcIt3tnEat
 
 ### 1.5.5. GitHub
 
@@ -157,7 +160,7 @@ Github  è la piattaforma leader per l’hosting di progetti software sottoforma
 
 Inoltre sono numerosi i repositories contenente materiale didattico e di studio raccolto dagli utenti
 
-***Inserire doc api***
+[Documentazione](https://developer.github.com/v3/)
 
 ### 1.5.6. Medium
 
