@@ -5,9 +5,17 @@ const axios = require('axios');
 const NUMBEO_APP_KEY = process.env.NUMBEO_APP_KEY;
 
 // baseURL of the website. 
-const baseURL = 'https://www.numbeo.com/api/indices';
+const baseURLIndices = 'https://www.numbeo.com/api/indices';
+const baseURLPrices = 'https://www.numbeo.com/api/city_prices';
+
+const usefulMeasures = ['Monthly Pass (Regular Price), Transportation', 'Meal, Inexpensive Restaurant, Restaurants', 
+                        'Apartment (1 bedroom) in City Centre, Rent Per Month','Apartment (1 bedroom) Outside of Centre, Rent Per Month', 
+                        'Apartment (3 bedrooms) in City Centre, Rent Per Month', 'Apartment (3 bedrooms) Outside of Centre, Rent Per Month',
+                        'Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment, Utilities (Monthly)', 'Internet (60 Mbps or More, Unlimited Data, Cable/ADSL), Utilities (Monthly)', 
+                        'Average Monthly Net Salary (After Tax), Salaries And Financing']
 
 module.exports.getIndicesByLocation = getIndicesByLocation;
+module.exports.getPricesByLocation = getPricesByLocation;
 
 //function that allows you to find indices for a city by its latitude and longitude
 async function getIndicesByLocation(longitude, latitude) {
@@ -18,7 +26,7 @@ async function getIndicesByLocation(longitude, latitude) {
     };
 
     try {
-        let response = await axios.get(baseURL, { params: params });
+        let response = await axios.get(baseURLIndices, { params: params });
         if (response.status == 200) {
             
             let {name,quality_of_life_index, rent_index, crime_index, health_care_index} = response.data;
@@ -34,6 +42,34 @@ async function getIndicesByLocation(longitude, latitude) {
 
             console.log(indices);
             return indices;
+        }
+    } catch (err) {
+
+    }
+}
+
+//function that allows you to find indices for a city by its latitude and longitude
+async function getPricesByLocation(longitude, latitude) {
+
+    let params = {
+        'api_key': NUMBEO_APP_KEY,
+        'query': `${longitude},${latitude}`
+    };
+
+    try {
+        let response = await axios.get(baseURLPrices, { params: params });
+        if (response.status == 200) {
+            let prices = response.data.prices;
+            let refinedPrices = [];
+
+
+            prices.forEach(price => {
+                if(usefulMeasures.includes(price.item_name)){
+                    refinedPrices.push({'item': price.item_name, 'price': price.average_price});
+                }
+            });
+            
+            return refinedPrices;
         }
     } catch (err) {
 
