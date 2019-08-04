@@ -18,11 +18,11 @@ async function getSalaries(job, location) {
         let response = await axios.get(baseURL, {params: params});
         if(response.status == 200){
             const $ = cheerio.load(response.data);
-            var jobHeaderString = $('.Salaries-page-header').text();
-            var jobHeader = jobHeaderString.split(' Salaries in ');
-            var salaries = $('.Salaries-graph').attr('data-points').split(",");
+            let jobHeaderString = $('.Salaries-page-header').text();
+            let jobHeader = jobHeaderString.split(' Salaries in ');
+            let salaries = $('.Salaries-graph').attr('data-points').split(",");
 
-            var data = jobHeader.concat(salaries[0],salaries[2], salaries[4]);
+            let data = jobHeader.concat(salaries[0],salaries[2], salaries[4]);
 
             return data;
         } 

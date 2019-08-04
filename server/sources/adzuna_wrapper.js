@@ -25,6 +25,7 @@ async function getJobsByLocation(jobTitle, location) {
         if (response.status == 200) {
 
             let rawJobs = response.data.results;   //jobs with all the charateristics retrivied
+            console.log(rawJobs);
             let refinedJobs = [];
 
             // clean jobs with only informations that are useful for us.
