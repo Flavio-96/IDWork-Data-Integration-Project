@@ -56,6 +56,8 @@ async function getInfos(city, country) {
         quickStats.push(statistic);
       });
 
+      let description = tempArticles[0].substring(9) + tempArticles[3] + tempArticles[5] + tempArticles[6] + tempArticles[8] + tempArticles[10];
+
       /*
       CREATING OBJECT
       */
@@ -71,12 +73,7 @@ async function getInfos(city, country) {
         unemployment_rate: quickStats[6],
         median_monthly_rate: quickStats[7],
         average_commute_time: quickStats[8],
-        whats_like: tempArticles[0].substring(9),
-        cost_of_living: tempArticles[3],
-        weather: tempArticles[5],
-        commuting: tempArticles[6],
-        who_lives: tempArticles[8],
-        what_to_do: tempArticles[10]
+        description: description
       };
 
       return data;
