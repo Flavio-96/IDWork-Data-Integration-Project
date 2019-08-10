@@ -18,9 +18,11 @@ async function getJobsByLocation(keyword, location) {
     app_id: ADZUNA_APP_ID,
     app_key: ADZUNA_APP_KEY,
     what: keyword,
-    where: location,
     category: category
   };
+
+  if(location)
+    params.where = location;
 
   try {
     let response = await axios.get(baseURL, { params: params });

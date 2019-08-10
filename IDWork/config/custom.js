@@ -8,16 +8,20 @@
  * https://sailsjs.com/config/custom
  */
 
+const lineReader = require('line-reader');
+
+var categories_list = new Array();
+lineReader.eachLine('dictionaries/technologies.csv', function(line) {
+  categories_list.push(line.toLowerCase());
+});
+
+var places_list = new Array();
+lineReader.eachLine('dictionaries/cities.csv', function(line) {
+  places_list.push(line.split(',')[0].toLowerCase());
+});
+
 module.exports.custom = {
-
-  /***************************************************************************
-  *                                                                          *
-  * Any other custom config this Sails app should use during development.    *
-  *                                                                          *
-  ***************************************************************************/
-  // mailgunDomain: 'transactional-mail.example.com',
-  // mailgunSecret: 'key-testkeyb183848139913858e8abd9a3',
-  // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
-  // …
-
+  categories: categories_list,
+  places: places_list,
+  wrappers_folfer: '../wrappers/'
 };

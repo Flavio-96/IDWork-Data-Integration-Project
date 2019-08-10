@@ -12,6 +12,7 @@
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.0.0",
     "grunt": "1.0.4",
+    "line-reader": "^0.4.0",
     "sails": "^1.2.3",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
