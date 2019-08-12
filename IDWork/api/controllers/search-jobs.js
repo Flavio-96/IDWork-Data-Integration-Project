@@ -33,7 +33,6 @@ module.exports = {
 
 
   fn: async function ({category, place}) {
-    console.log(sails.config.custom.places)
     if(!sails.config.custom.categories.includes(category.toLowerCase()))
       throw 'badParams';
 
@@ -41,16 +40,21 @@ module.exports = {
       if(!sails.config.custom.places.includes(place.toLowerCase()))
         throw 'badParams';
     
-    wrappers_folder = sails.config.custom.wrappers_folfer;
-    const adzuna = require(wrappers_folder+'adzuna_wrapper');
-    let adzuna_result = await adzuna.getJobsByLocation(category, place);
+
+    adzuna_result = await sails.helpers.adzunaHelper.with({
+      category: category,
+      place: place
+    });
     
-    const simplyhired = require(wrappers_folder+'simplyhired_wrapper');
-    let simplyhired_result = await simplyhired.getSalaries(category, place);
+    simplyhired_result = await sails.helpers.simplyHiredHelper.with({
+      category: category,
+      place: place
+    });
     
-    //Create new object with results together
+    result = {...adzuna_result, ...simplyhired_result};
+
     return {
-        result: simplyhired_result // adzuna_result
+        result: result
       };
 
   }

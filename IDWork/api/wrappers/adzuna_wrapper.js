@@ -43,6 +43,9 @@ async function getJobsByLocation(keyword, location) {
           redirect_url
         } = rawJob;     //destructoring
 
+        title = title.replace(/<\/?[^>]+(>|$)/g, "");
+        description = description.replace(/<\/?[^>]+(>|$)/g, "");
+
         let refinedJob = {
           title: title,
           job_category: category,
