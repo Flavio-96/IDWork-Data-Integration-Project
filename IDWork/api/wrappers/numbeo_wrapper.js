@@ -50,8 +50,6 @@ async function getIndicesByLocation(longitude, latitude) {
       let indices = {
         city: name,
         country: city,
-        longitude: longitude,
-        latitude: latitude,
         quality_of_life_index: quality_of_life_index,
         rent_index: rent_index,
         crime_index: crime_index,

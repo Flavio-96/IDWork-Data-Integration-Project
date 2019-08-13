@@ -55,7 +55,6 @@ async function getInfos(city, country) {
 
         quickStats.push(statistic);
       });
-      
       let description = tempArticles[0].substring(9) + tempArticles[3] + tempArticles[5] + tempArticles[6] + tempArticles[8] + tempArticles[10];
 
       /*

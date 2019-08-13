@@ -8,15 +8,14 @@
         <div class="search-container">
           <!-- Form -->
           <h2>Find job</h2>
-          <form>
+          <form method="GET" action="/jobs">
             <div>
               <label>Keyword </label>
               <select
                 id="keyword"
                 type="text"
                 class="ico-01 seven columns"
-                placeholder="keyword"
-                value="Keyword"
+                name="category"
               ></select>
             </div>
             <div>
@@ -25,12 +24,11 @@
                 id="city"
                 type="text"
                 class="ico-02 seven columns"
-                placeholder="city"
-                value="City"
+                name="place"
               ></select>
             </div>
 
-            <button><i class="fa fa-search"></i></button>
+            <button type="submit" value="Submit"><i class="fa fa-search"></i></button>
           </form>
 
           <!-- Announce -->

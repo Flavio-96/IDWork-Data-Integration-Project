@@ -18,9 +18,11 @@ async function getJobsByLocation(keyword, location) {
     app_id: ADZUNA_APP_ID,
     app_key: ADZUNA_APP_KEY,
     what: keyword,
-    where: location,
     category: category
   };
+
+  if(location)
+    params.where = location;
 
   try {
     let response = await axios.get(baseURL, { params: params });
@@ -41,10 +43,11 @@ async function getJobsByLocation(keyword, location) {
           redirect_url
         } = rawJob;     //destructoring
 
-        let cleanTitle = title.replace(/<(\w+)>|<\/(\w+)>/gm, '');
+        title = title.replace(/<\/?[^>]+(>|$)/g, "");
+        description = description.replace(/<\/?[^>]+(>|$)/g, "");
 
         let refinedJob = {
-          title: cleanTitle,
+          title: title,
           job_category: category,
           category: keyword,
           company_name: company.display_name,
