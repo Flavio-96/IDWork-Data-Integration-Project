@@ -444,6 +444,19 @@ ul li ul a.sf-with-ul:after {
 	float: left;
 }
 
+.search-container div {
+	display: inline-block;
+	color: white;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.search-container label {
+	color: white;
+	font-weight: 300;
+	font-size: 20px;
+}
+
 
 /* Form Icons */
 input.ico-01 { background: #fff url("../images/ico-01.png") no-repeat scroll 97% 20px / 21px 21px; }
@@ -459,9 +472,10 @@ input.ico-02 { background: #fff url("../images/ico-02.png") no-repeat scroll 96%
 	font-size: 20px;
 	box-sizing: border-box;
 	text-align: center;
-	height: 60px;
+	height: 50px;
 	width: 7%;
 	position: relative;
+	padding-top: 8px;
 }
 
 .search-container button:before { 
