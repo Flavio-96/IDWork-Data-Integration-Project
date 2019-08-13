@@ -9,6 +9,7 @@ module.exports.routes = {
 
   // 'GET /': { view: 'pages/homepage' },
   'GET /jobs':   { action: 'search-jobs' },
+  'GET /city':   { action: 'city-info' },
 
 
 };

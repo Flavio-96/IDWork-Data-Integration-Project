@@ -2,7 +2,7 @@
 const axios = require("axios");
 
 //api id and key stored as environment variables
-const NUMBEO_APP_KEY = process.env.NUMBEO_APP_KEY;
+const NUMBEO_APP_KEY = 'y6bfz7p8k6vbw7';
 
 // baseURL of the website.
 const baseURLIndices = "https://www.numbeo.com/api/indices";
@@ -23,11 +23,11 @@ const usefulMeasures = [
 module.exports.getIndicesByLocation = getIndicesByLocation;
 module.exports.getPricesByLocation = getPricesByLocation;
 
-//function that allows you to find indices for a city by its latitude and longitude
-async function getIndicesByLocation(longitude, latitude) {
+//function that allows you to find indices for a city given city name and country name
+async function getIndicesByLocation(city, country) {
   let params = {
     api_key: NUMBEO_APP_KEY,
-    query: `${longitude},${latitude}`
+    query: `${city},${country}`
   };
 
   try {
@@ -40,7 +40,7 @@ async function getIndicesByLocation(longitude, latitude) {
         crime_index,
         health_care_index
       } = response.data;
-
+      
       //name has city name and country name separated by a comma. We need it splitted
 
       let city_and_nation_splitted = name.split(", ")
@@ -58,14 +58,14 @@ async function getIndicesByLocation(longitude, latitude) {
 
       return indices;
     }
-  } catch (err) {}
+  } catch (err) {console.log(err)}
 }
 
-//function that allows you to find indices for a city by its latitude and longitude
-async function getPricesByLocation(longitude, latitude) {
+//function that allows you to find indices for a city given city name and country name
+async function getPricesByLocation(city, country) {
   let params = {
     api_key: NUMBEO_APP_KEY,
-    query: `${longitude},${latitude}`
+    query: `${city},${country}`
   };
 
   try {

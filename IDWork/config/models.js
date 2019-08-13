@@ -19,7 +19,7 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  migrate: 'alter',
+  migrate: 'safe',
 
 
   /***************************************************************************
@@ -31,7 +31,7 @@ module.exports.models = {
   attributes: {
     createdAt: { type: 'number', autoCreatedAt: true, },
     updatedAt: { type: 'number', autoUpdatedAt: true, },
-    id: { type: 'string', columnName: '_id', autoIncrement: true,},
+    id: { type: 'string', columnName: '_id', autoCreatedAt: true},
   },
 
 
