@@ -11,9 +11,11 @@ async function getInfos(city, country) {
   try {
 
     //formatting input to fit request's style
-    let cityNoSpaces = city.replace(" ", "-");
-    let countryNoSpaces = country.replace(" ", "-");
+    country = country.trim();
+    let cityNoSpaces = city.replace(/ /g,"-");
+    let countryNoSpaces = country.replace(/ /g,"-");
 
+    console.log(`${baseURL}/${countryNoSpaces}/${cityNoSpaces}?`)
     let response = await axios.get(
       `${baseURL}/${countryNoSpaces}/${cityNoSpaces}?`
     );
@@ -77,5 +79,7 @@ async function getInfos(city, country) {
 
       return data;
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log("error:" +err)
+  }
 }
