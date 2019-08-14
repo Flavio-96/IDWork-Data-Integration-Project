@@ -99,13 +99,15 @@ module.exports.bootstrap = async function() {
       who_lives: usn_result.who_lives,
       what_to_do: usn_result.what_to_do
     })
-
+  }
   let currentTime = Date.now();
   let newObj = {updateTime: currentTime};
   newJson = JSON.stringify(newObj);
   fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
     if (err)
-      console.log('error in saving file');
-    });
-  }
+      sails.log.error(`Error saving file DB-bootstrap`)    
+    else{
+      sails.log(`File created`);
+    }
+  });
 };
