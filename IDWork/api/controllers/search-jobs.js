@@ -52,13 +52,22 @@ module.exports = {
       place: place
     });
 
+    let coursera_results = await sails.helpers.courseraHelper.with({
+      keyword: category
+    })
+
+    console.log(coursera_results);
+
+    let city = place.split(", ")[0];
+
+    let city_info = await City.find({name: city});
 
     return {
         category: category,
         place: place,
         jobs: adzuna_result,
-        salaries: simplyhired_result
+        salaries: simplyhired_result,
+        city: city_info[0]
     };
-
   }
 };

@@ -10,61 +10,51 @@
 
 <!-- Content
 ================================================== -->
-<div class="container padding-bottom">
+<div class="jobs container">
   <!-- Widgets -->
-  <div class="five columns">
-	<h2>Austin, TX</h2>
-	<h4>Stats</h4>
-	<ul>
-	  <li>Population:</li>
-	  <li>Population:</li>
-	  <li>Population:</li>
-	</ul>
-	<ul>
-	  <li>Rent:</li>
-	  <li>Rent:</li>
-	  <li>Rent:</li>
-	</ul>
-	<ul>
-	  <li>Temps:</li>
-	  <li>Temps:</li>
-	  <li>Temps:</li>
-	</ul>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-	</p>
-	<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-			cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-			est laborum.
-		  </p>
-		  <p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-				cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-				est laborum.
-			  </p>
-
+  <div class="eight columns">
+    <h2>Austin, TX</h2>
+    <h4>Stats</h4>
+    <div style="display: inline-block">
+      <ul>
+        <li><img class="stats-img" src="images/users.svg"/> <%= city.population%> <br> <span>Population</span> </li>
+        <li><img class="stats-img" src="images/users.svg"/> Average annual salary: <%= city.average_salary_USN%></li>
+        <li><img class="stats-img" src="images/sun.svg"/> Average high/low temps: <%= city.temperature%></li>
+      </ul>
+    </div>
+    <div style="display: inline-block">
+      <ul>
+        <li><img class="stats-img" src="images/calendar.svg"/> Median Age: <%= city.median_age%></li>
+        <li><img class="stats-img" src="images/house.svg"/> Median Home Price: <%= city.median_home_price%></li>
+        <li><img class="stats-img" src="images/drop.svg"/> Average annual rainfall: <%= city.average_annual_rainfall%></li>
+      </ul>
+    </div>
+    <div style="display: inline-block">
+      <ul>
+        <li><img class="stats-img" src="images/bar-chart.svg"/> Unemployment rate: <%= city.unemployment_rate%></li>
+        <li><img class="stats-img" src="images/hotel.svg"/> Median Monthly rent: <%= city.median_monthly_rate%></li>
+        <li><img class="stats-img" src="images/stopwatch.svg"/> Average Commute Time: <%= city.average_commute_time%></li>
+      </ul>
+    </div>
+    <h3>What's like?</h3>
+    <p align="justify"><%= city.whats_like%></p>
+    <h3>What's the cost of living?</h3>
+    <p align="justify"><%= city.cost_of_living%></p>
+    <h3>What's the weather like?</h3>
+    <p align="justify"><%= city.weather%></p>
+    <h3>What's the best way to get around?</h3>
+    <p align="justify"><%= city.commuting%></p>
+    <h3>Who lives here?</h3>
+    <p align="justify"><%= city.who_lives%></p>
+    <h3>What is there to do?</h3>
+    <p align="justify"><%= city.what_to_do%></p>
   </div>
   <!-- Widgets / End -->
 
   <!-- Recent Jobs -->
   <h2>Jobs</h2>
-  <div class="eleven columns jobs">
-    <div class="padding-right">
+  <div class="eight columns jobs">
+    <div>
       <ul class="job-list full">
         <% jobs.forEach((job) => {%>
 
@@ -81,7 +71,9 @@
                 <span><i class="fa fa-map-marker"></i> <%=job.city%></span>
                 <%}%>
               </div>
-              <p><%=job.description%></p>
+              <!--
+			  <p><%=job.description%></p>
+			  -->
             </div>
           </a>
           <div class="clearfix"></div>

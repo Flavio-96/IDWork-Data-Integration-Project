@@ -1,5 +1,6 @@
 //dependencies
 const axios = require("axios");
+const http = require('http');
 
 //api id and key stored as environment variables
 const NUMBEO_APP_KEY = process.env.NUMBEO_APP_KEY;
@@ -20,6 +21,7 @@ const usefulMeasures = [
   "Average Monthly Net Salary (After Tax), Salaries And Financing"
 ];
 
+
 module.exports.getIndicesByLocation = getIndicesByLocation;
 module.exports.getPricesByLocation = getPricesByLocation;
 
@@ -31,7 +33,18 @@ async function getIndicesByLocation(city, country) {
   };
 
   try {
-    let response = await axios.get(baseURLIndices, { params: params });
+    let response = await axios({
+      method: "get",
+      url: baseURLIndices,
+      timeout: 1000 * 5, // Wait for 5 seconds
+      headers: {
+        "Content-Type": "application/json"
+      },
+      params: {
+        api_key: NUMBEO_APP_KEY,
+        query: `${city},${country}`
+      }
+    });//axios.get(baseURLIndices, { httpAgent: httpAgent, params: params });
     if (response.status == 200) {
       let {
         name,
@@ -40,10 +53,10 @@ async function getIndicesByLocation(city, country) {
         crime_index,
         health_care_index
       } = response.data;
-      
+
       //name has city name and country name separated by a comma. We need it splitted
 
-      let city_and_nation_splitted = name.split(", ")
+      let city_and_nation_splitted = name.split(", ");
       name = city_and_nation_splitted[0];
       let city = city_and_nation_splitted[1];
 
@@ -58,7 +71,9 @@ async function getIndicesByLocation(city, country) {
 
       return indices;
     }
-  } catch (err) {console.log("numbeo err")}
+  } catch (err) {
+    console.log(`Numbeo wrapper error: ${err}`);
+  }
 }
 
 //function that allows you to find indices for a city given city name and country name

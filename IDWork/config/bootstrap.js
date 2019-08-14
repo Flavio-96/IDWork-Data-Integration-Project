@@ -23,12 +23,18 @@ module.exports.bootstrap = async function() {
     let currentTime = Date.now();
 
     let diff = new dateDiff(currentTime, dataObj['updateTime']);
-    console.log(diff.days())
+    days = diff.days();
+    sails.log(`DB was created ${days} days ago ...`);
+    console.log()
     // The data are up to date
-    if (diff.days() < 30){
+    if (days < 30){
+      sails.log(`Information up-to-date`);
       return;
+    }else{
+      sails.log(`Information out-of-date`);
     }
-  
+  }
+
   sails.log('Inizialize IDWork db with "city" collection');
 
   // Remove city date if any
@@ -63,7 +69,7 @@ module.exports.bootstrap = async function() {
     });
 
     await City.create({
-      name: city,
+      name: city.toLowerCase(),
       country: country,
       quality_of_life_index: numbeo_result.quality_of_life_index ,
       rent_index: numbeo_result.rent_index,
@@ -93,14 +99,12 @@ module.exports.bootstrap = async function() {
       who_lives: usn_result.who_lives,
       what_to_do: usn_result.what_to_do
     })
-
-    let currentTime = Date.now();
-    let newObj = {updateTime: currentTime};
-    newJson = JSON.stringify(newObj);
-    fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
-      if (err)
-        console.log('error in saving file');
-      });
-    }
   }
+  let currentTime = Date.now();
+  let newObj = {updateTime: currentTime};
+  newJson = JSON.stringify(newObj);
+  fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
+    if (err)
+      console.log('error in saving file');
+    });
 };

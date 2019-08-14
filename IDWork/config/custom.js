@@ -38,5 +38,6 @@ module.exports.custom = {
   categories: categories_list,
   places: places_list,
   abbreviations: abbreviations_map,
+  cities_countries: cities_countries_list,
   wrappers_folder: '../wrappers/'
 };

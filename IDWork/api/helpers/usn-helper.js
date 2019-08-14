@@ -30,7 +30,7 @@ module.exports = {
   },
 
   fn: async function ({city,country}) {
-    wrappers_folder = sails.config.custom.wrappers_folfer;
+    wrappers_folder = sails.config.custom.wrappers_folder;
 
     usn_country = sails.config.custom.abbreviations[country];
 

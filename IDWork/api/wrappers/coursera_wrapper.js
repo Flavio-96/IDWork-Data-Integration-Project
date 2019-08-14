@@ -25,6 +25,7 @@ async function getCourses(keyword) {
   };
 
   try {
+
     let response = await axios({
       method: "post",
       url: baseURL,
@@ -51,20 +52,29 @@ async function getCourses(keyword) {
           productDifficultyLevel
         } = course;   //destructoring
         
+        let description;
+
+        if(course._snippetResult){
+          description = _snippetResult.description.value;
+        }
+
         let refinedCourse = {
           title: name,
           category: keyword,
-          description: _snippetResult.description.value,
+          description: description,
           difficulty: productDifficultyLevel,
           skills: skills,
           url_image: imageUrl,
           url: `https://www.coursera.org${objectUrl}`,
         };
-        
+
         refinedCourses.push(refinedCourse);
       });
 
+
       return refinedCourses;
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(`Coursera wrapper error: ${err}`);
+  }
 }
