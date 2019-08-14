@@ -14,7 +14,6 @@ module.exports = {
     name: {
       type: 'string',
       required: true,
-      unique: true,
       example: 'Austin'
     },
 
@@ -25,8 +24,7 @@ module.exports = {
     },
 
     quality_of_life_index: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
 
     rent_index: {
@@ -133,6 +131,7 @@ module.exports = {
       type: 'string'
     },
   },
+  datastore: 'mongodb',
 
 };
 

@@ -14,10 +14,12 @@
  */
 
 module.exports.datastores = {
-    default: {
-      default: {
-        adapter: 'sails-mongo',
-        url: 'mongodb://root@localhost/IDWork'
-      }
-  },
+  mongodb: {
+  
+    adapter: 'sails-mongo',
+    host: 'localhost',
+    port: 27017,
+    database: 'IDWork'
+
+    }
 };
