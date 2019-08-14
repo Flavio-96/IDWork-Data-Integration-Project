@@ -28,7 +28,8 @@ module.exports.bootstrap = async function() {
     if (diff.days() < 30){
       return;
     }
-  
+  }
+
   sails.log('Inizialize IDWork db with "city" collection');
 
   // Remove city date if any
@@ -94,13 +95,12 @@ module.exports.bootstrap = async function() {
       what_to_do: usn_result.what_to_do
     })
 
-    let currentTime = Date.now();
-    let newObj = {updateTime: currentTime};
-    newJson = JSON.stringify(newObj);
-    fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
-      if (err)
-        console.log('error in saving file');
-      });
-    }
+  let currentTime = Date.now();
+  let newObj = {updateTime: currentTime};
+  newJson = JSON.stringify(newObj);
+  fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
+    if (err)
+      console.log('error in saving file');
+    });
   }
 };
