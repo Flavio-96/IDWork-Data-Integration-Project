@@ -23,10 +23,15 @@ module.exports.bootstrap = async function() {
     let currentTime = Date.now();
 
     let diff = new dateDiff(currentTime, dataObj['updateTime']);
-    console.log(diff.days())
+    days = diff.days();
+    sails.log(`DB was created ${days} days ago ...`);
+    console.log()
     // The data are up to date
-    if (diff.days() < 30){
+    if (days < 30){
+      sails.log(`Information up-to-date`);
       return;
+    }else{
+      sails.log(`Information out-of-date`);
     }
   }
 
