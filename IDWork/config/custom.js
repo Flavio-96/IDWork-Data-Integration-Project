@@ -39,5 +39,5 @@ module.exports.custom = {
   places: places_list,
   abbreviations: abbreviations_map,
   cities_countries: cities_countries_list,
-  wrappers_folfer: '../wrappers/'
+  wrappers_folder: '../wrappers/'
 };
