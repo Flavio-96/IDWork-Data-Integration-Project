@@ -105,6 +105,9 @@ module.exports.bootstrap = async function() {
   newJson = JSON.stringify(newObj);
   fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
     if (err)
-      console.log('error in saving file');
-    });
+      sails.log.error(`Error saving file DB-bootstrap`)    
+    else{
+      sails.log(`File created`);
+    }
+  });
 };
