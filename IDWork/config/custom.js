@@ -16,7 +16,7 @@ lineReader.eachLine('dictionaries/technologies.csv', function(line) {
 
 var places_list = new Array();
 lineReader.eachLine('dictionaries/cities.csv', function(line) {
-  places_list.push(line.split(',')[0].toLowerCase());
+  places_list.push(line.toLowerCase());
 });
 
 var abbreviations_map = {};

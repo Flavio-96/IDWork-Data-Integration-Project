@@ -46,6 +46,8 @@ module.exports = {
       category: category,
       place: place
     });
+
+    console.log(adzuna_result);
     
     simplyhired_result = await sails.helpers.simplyHiredHelper.with({
       category: category,
@@ -53,6 +55,8 @@ module.exports = {
     });
 
     return {
+        category: category,
+        place: place,
         jobs: adzuna_result,
         salaries: simplyhired_result
     };

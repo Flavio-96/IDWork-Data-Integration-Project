@@ -9,6 +9,7 @@ const ADZUNA_APP_ID = process.env.ADZUNA_APP_ID;
 const baseURL = "http://api.adzuna.com/v1/api/jobs/us/search/1";
 
 const category = "it-jobs";
+const results_per_page = 500;
 
 module.exports.getJobsByLocation = getJobsByLocation;
 
@@ -18,7 +19,8 @@ async function getJobsByLocation(keyword, location) {
     app_id: ADZUNA_APP_ID,
     app_key: ADZUNA_APP_KEY,
     what: keyword,
-    category: category
+    category: category,
+    results_per_page: results_per_page
   };
 
   if(location)

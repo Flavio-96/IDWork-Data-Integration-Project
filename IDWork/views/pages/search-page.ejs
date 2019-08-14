@@ -1,58 +1,96 @@
 <!-- Titlebar
 ================================================== -->
 <div id="titlebar">
-	<div class="container">
-		<div class="ten columns">
-			<span>We found 1,412 jobs matching:</span>
-			<h2>Web, Software & IT</h2>
-		</div>
-
-		<div class="six columns">
-			<a href="add-job.html" class="button">Post a Job, It’s Free!</a>
-		</div>
-
-	</div>
+  <div class="container">
+    <div class="ten columns">
+      <h2>Results for <%= category %> in <%= place%></h2>
+    </div>
+  </div>
 </div>
-
 
 <!-- Content
 ================================================== -->
-<div class="container">
-	<!-- Recent Jobs -->
-	<div class="eleven columns">
-	<div class="padding-right">
-		
-		<form action="#" method="get" class="list-search">
-			<button><i class="fa fa-search"></i></button>
-			<input type="text" placeholder="job title, keywords or company name" value=""/>
-			<div class="clearfix"></div>
-		</form>
+<div class="container padding-bottom">
+  <!-- Widgets -->
+  <div class="five columns">
+	<h2>Austin, TX</h2>
+	<h4>Stats</h4>
+	<ul>
+	  <li>Population:</li>
+	  <li>Population:</li>
+	  <li>Population:</li>
+	</ul>
+	<ul>
+	  <li>Rent:</li>
+	  <li>Rent:</li>
+	  <li>Rent:</li>
+	</ul>
+	<ul>
+	  <li>Temps:</li>
+	  <li>Temps:</li>
+	  <li>Temps:</li>
+	</ul>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+	</p>
+	<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+			cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+			est laborum.
+		  </p>
+		  <p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				est laborum.
+			  </p>
 
-		<ul class="job-list full">
+  </div>
+  <!-- Widgets / End -->
 
-            <% jobs.forEach((job) => {%>
+  <!-- Recent Jobs -->
+  <h2>Jobs</h2>
+  <div class="eleven columns jobs">
+    <div class="padding-right">
+      <ul class="job-list full">
+        <% jobs.forEach((job) => {%>
 
-			<li><a href="job-page.html">
-				<img src="images/job-list-logo-01.png" alt="">
-				<div class="job-list-content">
-					<h4> <%=job.title%></h4>
-					<div class="job-icons">
-						<span><i class="fa fa-briefcase"></i> <%=job.company_name%></span>
-						<% if(job.city){%>
-						<span><i class="fa fa-map-marker"></i> <%=job.city%></span>
-						<%}%>
-					</div>
-					<p><%=job.description%></p>
-				</div>
-				</a>
-				<div class="clearfix"></div>
-            </li>
-            <% });%>
+        <li>
+          <a href="job-page.html">
+            <img src="images/job-list-logo-01.png" alt="" />
+            <div class="job-list-content">
+              <h4><%=job.title%></h4>
+              <div class="job-icons">
+                <span
+                  ><i class="fa fa-briefcase"></i> <%=job.company_name%></span
+                >
+                <% if(job.city){%>
+                <span><i class="fa fa-map-marker"></i> <%=job.city%></span>
+                <%}%>
+              </div>
+              <p><%=job.description%></p>
+            </div>
+          </a>
+          <div class="clearfix"></div>
+        </li>
+        <% });%>
+      </ul>
+      <div class="clearfix"></div>
 
-		</ul>
-		<div class="clearfix"></div>
-
-        <!--
+      <!--
 		<div class="pagination-container">
 			<nav class="pagination">
 				<ul>
@@ -72,16 +110,6 @@
 			</nav>
         </div>
         -->
-
-	</div>
-	</div>
-
-
-	<!-- Widgets -->
-	<div class="five columns">
-
-	</div>
-	<!-- Widgets / End -->
-
-
+    </div>
+  </div>
 </div>
