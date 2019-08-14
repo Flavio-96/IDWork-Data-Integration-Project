@@ -23,7 +23,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'Output all info on the selected city available in MongoDB',
+      description: 'Output all info available on numbeo about the selected city',
     },
   },
 
@@ -32,9 +32,11 @@ module.exports = {
     wrappers_folder = sails.config.custom.wrappers_folfer;
 
     const numbeo = require(`${wrappers_folder}numbeo_wrapper`);
-    let numbeo_result = await numbeo.getIndicesByLocation(city, country);
-
-    return numbeo_result;
+    let numbeo_indices = await numbeo.getIndicesByLocation(city, country);
+    // let numbeo_prices = await numbeo.getPricesByLocation(city, country);
+    
+    // return {...numbeo_indices,...numbeo_prices};
+    return numbeo_indices;
   }
 
 

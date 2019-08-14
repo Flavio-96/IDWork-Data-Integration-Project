@@ -2,7 +2,7 @@
 const axios = require("axios");
 
 //api id and key stored as environment variables
-const NUMBEO_APP_KEY = 'y6bfz7p8k6vbw7';
+const NUMBEO_APP_KEY = process.env.NUMBEO_APP_KEY;
 
 // baseURL of the website.
 const baseURLIndices = "https://www.numbeo.com/api/indices";
@@ -58,7 +58,7 @@ async function getIndicesByLocation(city, country) {
 
       return indices;
     }
-  } catch (err) {console.log(err)}
+  } catch (err) {console.log("numbeo err")}
 }
 
 //function that allows you to find indices for a city given city name and country name

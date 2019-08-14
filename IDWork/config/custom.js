@@ -26,9 +26,18 @@ fs.createReadStream('dictionaries/state_abbreviations.csv')
     abbreviations_map[row[0]] = row[1];    
   });
 
+var cities_countries_list = new Array();
+lineReader.eachLine('dictionaries/cities.csv', function(line) {
+  split = line.split(','); 
+  city = split[0];
+  country = split[1].trim();
+  cities_countries_list.push({city: city, country:country})
+});
+
 module.exports.custom = {
   categories: categories_list,
   places: places_list,
   abbreviations: abbreviations_map,
+  cities_countries: cities_countries_list,
   wrappers_folfer: '../wrappers/'
 };
