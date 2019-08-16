@@ -46,22 +46,11 @@ module.exports.bootstrap = async function() {
     element = list[ind];
     city = element.city
     country = element.country
-    sails.log(`adding info about ${city} ...`);
+    sails.log(`Adding info about ${city} ...`);
     numbeo_result = await sails.helpers.numbeoHelper.with({
       city: city,
       country: country
     });
-
-    // numbeo_prices = new Array();
-    // for(x in numbeo_result){
-    //   if(!numbeo_result[x])
-    //     console.log("Problema con i prezzi di "+city);
-        
-    //   numbeo_prices.push(numbeo_result[x].price)
-
-    //   if(x==7)
-    //     break;
-    // }
 
     usn_result = await sails.helpers.usnHelper.with({
       city: city,

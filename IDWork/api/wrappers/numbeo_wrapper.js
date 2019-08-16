@@ -32,47 +32,53 @@ async function getIndicesByLocation(city, country) {
     query: `${city},${country}`
   };
 
-  try {
-    let response = await axios({
-      method: "get",
-      url: baseURLIndices,
-      timeout: 1000 * 5, // Wait for 5 seconds
-      headers: {
-        "Content-Type": "application/json"
-      },
-      params: {
-        api_key: NUMBEO_APP_KEY,
-        query: `${city},${country}`
-      }
-    });//axios.get(baseURLIndices, { httpAgent: httpAgent, params: params });
-    if (response.status == 200) {
-      let {
-        name,
-        quality_of_life_index,
-        rent_index,
-        crime_index,
-        health_care_index
-      } = response.data;
-
-      //name has city name and country name separated by a comma. We need it splitted
-
-      let city_and_nation_splitted = name.split(", ");
-      name = city_and_nation_splitted[0];
-      let city = city_and_nation_splitted[1];
-
-      let indices = {
-        city: name,
-        country: city,
-        quality_of_life_index: quality_of_life_index,
-        rent_index: rent_index,
-        crime_index: crime_index,
-        health_care_index: health_care_index
-      };
-
-      return indices;
+  var response = undefined;
+  while(!response){
+    try{
+      response = await axios({
+        method: "get",
+        url: baseURLIndices,
+        timeout: 1000 * 2, // Wait for 5 seconds
+        headers: {
+          "Content-Type": "application/json"
+        },
+        params: {
+          api_key: NUMBEO_APP_KEY,
+          query: `${city},${country}`
+        }
+      });//axios.get(baseURLIndices, { httpAgent: httpAgent, params: params });
+    }catch(err){
+      sails.log.error(`Error for "${params.query}"\n\tretry  the request ...`);
     }
-  } catch (err) {
-    console.log(`Numbeo wrapper error: ${err}`);
+  }
+
+  if (response.status == 200) {
+    sails.log(`Request OK for ${params.query}\n\tstore data`);
+          
+    let {
+      name,
+      quality_of_life_index,
+      rent_index,
+      crime_index,
+      health_care_index
+    } = response.data;
+
+    //name has city name and country name separated by a comma. We need it splitted
+
+    let city_and_nation_splitted = name.split(", ");
+    name = city_and_nation_splitted[0];
+    let city = city_and_nation_splitted[1];
+
+    let indices = {
+      city: name,
+      country: city,
+      quality_of_life_index: quality_of_life_index,
+      rent_index: rent_index,
+      crime_index: crime_index,
+      health_care_index: health_care_index
+    };
+
+    return indices;
   }
 }
 
