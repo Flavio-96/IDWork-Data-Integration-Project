@@ -17,7 +17,7 @@ module.exports = {
       description: 'The place selected by the user',
       type: 'string'
     }
- },
+  },
 
 
   exits: {
@@ -32,42 +32,38 @@ module.exports = {
   },
 
 
-  fn: async function ({category, place}) {
- 
-    if(!sails.config.custom.categories.includes(category.toLowerCase()))
+  fn: async function ({ category, place }) {
+
+    if (!sails.config.custom.categories.includes(category.toLowerCase()))
       throw 'badParams';
 
-    if(place)
-      if(!sails.config.custom.places.includes(place.toLowerCase()))
+    if (place)
+      if (!sails.config.custom.places.includes(place.toLowerCase()))
         throw 'badParams';
-    
+
 
     adzuna_result = await sails.helpers.adzunaHelper.with({
       category: category,
       place: place
     });
-    
+
     simplyhired_result = await sails.helpers.simplyHiredHelper.with({
       category: category,
       place: place
     });
 
-    let coursera_results = await sails.helpers.courseraHelper.with({
-      keyword: category
-    })
-
-    console.log(coursera_results);
-
     let city = place.split(", ")[0];
 
-    let city_info = await City.find({name: city});
+    let city_info = await City.find({ name: city });
+
+    console.log(adzuna_result);
 
     return {
-        category: category,
-        place: place,
-        jobs: adzuna_result,
-        salaries: simplyhired_result,
-        city: city_info[0]
+      category: category,
+      place: place,
+      jobs: adzuna_result,
+      salaries: simplyhired_result,
+      city: city_info[0]
     };
   }
 };

@@ -34,7 +34,7 @@ module.exports = {
 
     const adzuna = require(`${wrappers_folder}adzuna_wrapper`);
     let adzuna_result = await adzuna.getJobsByLocation(category, place);
-
+    
     return adzuna_result;
   }
 
