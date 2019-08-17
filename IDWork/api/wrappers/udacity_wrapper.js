@@ -16,24 +16,28 @@ async function getCourses() {
       let courses = data.courses;
 
       let refinedCourses = [];
-
+      var count = 0;
       // clean course with only informations that are useful for us.
       courses.forEach(course => {
-        let { title, summary, image, slug, metadata, level } = course;
+        let { title, subtitle, syllabus, summary, image, slug, metadata, level } = course;
         let refinedCourse = {
           title: title,
-          description: summary,
+          subtitle: subtitle,
+          syllabus: syllabus.replace(/<\/?[^>]+(>|$)/g, ""),
+          description: summary.replace(/<\/?[^>]+(>|$)/g, ""),
           difficulty: level,
-          skills: metadata.skills,
           url_image: image,
           url: `https://udacity.com/course/${slug}`,
-          
         };
         
+        if(metadata){
+          refinedCourse.skills = metadata.skills;
+        }
+
         refinedCourses.push(refinedCourse);
       });
 
       return refinedCourses;
     }
-  } catch (err) {}
+  } catch (err) {console.log(err)}
 }
