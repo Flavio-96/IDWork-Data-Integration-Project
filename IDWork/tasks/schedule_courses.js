@@ -1,7 +1,13 @@
 module.exports = {
-    run : async function(){
+    run : async (bootstrapUdacityLastRunInfoPath) => {
         sails.log('Update IDWork "udacity" collection');
-
-        await sails.helpers.database.udacityDbUtility(bootstrapUdacityLastRunInfoPath);
+        return new Promise((resolve, reject)=>{
+            sails.helpers.database.udacityDbUtility(bootstrapUdacityLastRunInfoPath).then((result)=>{
+                resolve(result);
+            })
+            .catch((err)=>{
+                reject(err);
+            })    
+        })
     }
 };

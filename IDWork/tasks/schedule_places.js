@@ -1,7 +1,13 @@
 module.exports = {
-    run : function(){
-        // TODO
-
-        sails.log(`Places scheduler`);
+    run : async (bootstrapPlacesLastRunInfoPath) => {
+        sails.log('Update IDWork "city" collection');
+        return new Promise((resolve, reject)=>{
+            sails.helpers.database.placeDbUtility(bootstrapPlacesLastRunInfoPath).then((result)=>{
+                resolve(result);
+            })
+            .catch((err)=>{
+                reject(err);
+            })    
+        })
     }
 };

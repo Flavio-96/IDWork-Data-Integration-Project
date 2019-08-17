@@ -15,7 +15,6 @@ async function getInfos(city, country) {
     let cityNoSpaces = city.replace(/ /g,"-");
     let countryNoSpaces = country.replace(/ /g,"-");
 
-    console.log(`${baseURL}/${countryNoSpaces}/${cityNoSpaces}?`)
     let response = await axios.get(
       `${baseURL}/${countryNoSpaces}/${cityNoSpaces}?`
     );
