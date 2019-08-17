@@ -1,6 +1,6 @@
 /**
  * City.js
- * @description :: A model definition that represents the main city in the USA
+ * @description :: A model definition that describe an important city in the USA
  */
 
 module.exports = {

@@ -1,102 +1,81 @@
 /**
- * Seed Function
- * (sails.config.bootstrap)
- *
  * A function that runs just before your Sails app gets lifted.
- * > Need more flexibility?  You can also create a hook.
- *
- * For more information on seeding your app with fake data, check out:
- * https://sailsjs.com/config/bootstrap
  */
 
 module.exports.bootstrap = async function() {
   const path = require('path');
-  const fs = require('fs');
   const dateDiff = require('date-diff');
+  const fs = require('fs');
 
-  var bootstrapLastRunInfoPath = path.resolve(sails.config.appPath, '.tmp/bootstrap-DBinfo.json');
+  let placesPath = '.tmp/bootstrap-DB-places-info.json';
+  var bootstrapPlacesLastRunInfoPath = path.resolve(sails.config.appPath, placesPath);
   
-  if (fs.existsSync(bootstrapLastRunInfoPath)) {
-    data = fs.readFileSync(bootstrapLastRunInfoPath);
+  var placesUpdate = true;
+  if (fs.existsSync(bootstrapPlacesLastRunInfoPath)) {
+    data = fs.readFileSync(bootstrapPlacesLastRunInfoPath);
     
     let dataObj = JSON.parse(data);
     let currentTime = Date.now();
 
     let diff = new dateDiff(currentTime, dataObj['updateTime']);
-    days = diff.days();
-    sails.log(`DB was created ${days} days ago ...`);
-    console.log()
+    let days = diff.days();
+    let hours = diff.hours();
+    sails.log(`Db for places DB was updated last time ${days} days and ${hours} hours ago ...`);
     // The data are up to date
     if (days < 30){
-      sails.log(`Information up-to-date`);
-      return;
+      sails.log(`Information up-to-date, no need for update!`);
+      placesUpdate = false;
     }else{
-      sails.log(`Information out-of-date`);
+      sails.log(`Information out-of-date, need to update informations!`);
     }
   }
+  if (placesUpdate){
+    sails.log('Inizialize IDWork db with "city" collection');
 
-  sails.log('Inizialize IDWork db with "city" collection');
-
-  // Remove city date if any
-  await sails.models["city"].destroy({});
-
-  // Get data on cities
-  list = sails.config.custom.cities_countries;
-  for(ind in list){
-    element = list[ind];
-    city = element.city
-    country = element.country
-    sails.log(`Adding info about ${city} ...`);
-    numbeo_result = await sails.helpers.numbeoHelper.with({
-      city: city,
-      country: country
-    });
-
-    usn_result = await sails.helpers.usnHelper.with({
-      city: city,
-      country: country
-    });
-
-    await City.create({
-      name: city.toLowerCase(),
-      country: country,
-      quality_of_life_index: numbeo_result.quality_of_life_index ,
-      rent_index: numbeo_result.rent_index,
-      crime_index: numbeo_result.crime_index,
-      health_care_index: numbeo_result.health_care_index,
-      // transportation_price: numbeo_prices[0],
-      // restaurants_price: numbeo_prices[1],
-      // apartment_single_center: numbeo_prices[2],
-      // apartment_single_suburbs: numbeo_prices[3],
-      // apartment_multiple_center: numbeo_prices[4],
-      // bills_avg_cost: numbeo_prices[5],
-      // internet_cost: numbeo_prices[6],
-      // average_salary_NU: numbeo_prices[7],
-      population: usn_result.population,
-      average_salary_USN: usn_result.average_annual_salary,
-      temperature: usn_result.temps,
-      median_age: usn_result.median_age,
-      median_home_price: usn_result.median_home_price,
-      average_annual_rainfall: usn_result.average_annual_rainfalls,
-      unemployment_rate: usn_result.unemployment_rate,
-      median_monthly_rate: usn_result.median_monthly_rate,
-      average_commute_time: usn_result.average_commute_time,
-      whats_like: usn_result.whats_like,
-      cost_of_living: usn_result.cost_of_living,
-      weather: usn_result.weather,
-      commuting: usn_result.commuting,
-      who_lives: usn_result.who_lives,
-      what_to_do: usn_result.what_to_do
-    })
+    await sails.helpers.database.placeDbUtility(bootstrapPlacesLastRunInfoPath);
   }
-  let currentTime = Date.now();
-  let newObj = {updateTime: currentTime};
-  newJson = JSON.stringify(newObj);
-  fs.writeFile(bootstrapLastRunInfoPath, newJson, 'utf8',  function(err) {
-    if (err)
-      sails.log.error(`Error saving file DB-bootstrap`)    
-    else{
-      sails.log(`File created`);
+  
+  // output blank line
+  console.log()
+
+  let udacityPath = '.tmp/bootstrap-DB-udacity-info.json';
+  var bootstrapUdacityLastRunInfoPath = path.resolve(sails.config.appPath, udacityPath);
+  
+  var udacityUpdate = true;
+  if (fs.existsSync(bootstrapUdacityLastRunInfoPath)) {
+    data = fs.readFileSync(bootstrapUdacityLastRunInfoPath);
+    
+    let dataObj = JSON.parse(data);
+    let currentTime = Date.now();
+
+    let diff = new dateDiff(currentTime, dataObj['updateTime']);
+    let hours = diff.hours();
+    sails.log(`DB for udacity was updated last time ${hours} hours ago ...`);
+    // The data are up to date
+    if (hours < 24){
+      sails.log(`Information up-to-date, no need for update!`);
+      udacityUpdate = false;
+    }else{
+      sails.log(`Information out-of-date, need to update informations!`);
     }
+  }
+  if(udacityUpdate){
+    sails.log('Inizialize IDWork db with "udacity" collection');
+
+    await sails.helpers.database.udacityDbUtility(bootstrapUdacityLastRunInfoPath);
+  }
+  
+  // output blank line
+  console.log()
+
+  // Add schedules for update DB
+  _.extend(sails.hooks.http.app.locals, sails.config.http.locals);
+
+  var schedule = require(`node-schedule`);
+  sails.config.crontab.crons().forEach(function(item){
+    schedule.scheduleJob(item.interval,sails.config.crontab[item.method]);
+    sails.log(`Schedule "${item.method}" activated`);    
   });
+
+  sails.log(`End bootstrap!`);    
 };
