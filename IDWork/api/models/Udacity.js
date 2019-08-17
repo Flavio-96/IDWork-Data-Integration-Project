@@ -18,14 +18,6 @@ module.exports = {
       example: 'Introduction to python programming'
     },
 
-    subtitle: {
-      type: 'string'
-    },
-
-    syllabus: {
-      type: 'string'
-    },
-
     description: {
       type: 'string'
     },

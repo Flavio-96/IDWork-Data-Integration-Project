@@ -40,8 +40,6 @@ module.exports = {
         
       await Udacity.create({
         title: course.title,
-        subtitle: course.subtitle,
-        syllabus: course.syllabus,
         description: course.description,
         difficulty: course.difficulty,
         url_image: course.url_image,
