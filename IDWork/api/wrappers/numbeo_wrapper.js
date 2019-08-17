@@ -53,7 +53,7 @@ async function getIndicesByLocation(city, country) {
   }
 
   if (response.status == 200) {
-    sails.log(`Request OK for ${params.query}\n\tstore data`);
+    sails.log(`Request OK for ${params.query}`);
           
     let {
       name,
