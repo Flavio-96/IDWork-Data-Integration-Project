@@ -31,6 +31,7 @@ async function getJobsByLocation(keyword, location) {
 
   try {
     let response = await axios.get(baseURL, { params: params });
+
     if (response.status == 200) {
       let rawJobs = response.data.results; //jobs with all the charateristics retrivied
       let refinedJobs = [];
@@ -93,7 +94,7 @@ async function getFullDescription(url) {
       return descriptionHTML;
     }
   } catch (err) {
-
+    console.log(`Adzuna description wrapper error: ${err}`);
   }
 
 }

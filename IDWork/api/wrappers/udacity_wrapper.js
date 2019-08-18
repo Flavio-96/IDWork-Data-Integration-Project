@@ -19,9 +19,11 @@ async function getCourses() {
       var count = 0;
       // clean course with only informations that are useful for us.
       courses.forEach(course => {
-        let { title, summary, image, slug, metadata, level } = course;
+        let { title, subtitle, syllabus, summary, image, slug, metadata, level } = course;
         let refinedCourse = {
           title: title,
+          subtitle: subtitle,
+          syllabus: syllabus.replace(/<\/?[^>]+(>|$)/g, ""),
           description: summary.replace(/<\/?[^>]+(>|$)/g, ""),
           difficulty: level,
           url_image: image,
