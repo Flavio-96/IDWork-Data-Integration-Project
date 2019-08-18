@@ -22,9 +22,7 @@ module.exports = {
 
 
   fn: async function () {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const udacity = require(`${wrappers_folder}udacity_wrapper`);
+    const udacity = require(`@wrappers/udacity_wrapper`);
     let udacity_result = await udacity.getCourses();
 
     return udacity_result;

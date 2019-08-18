@@ -8,6 +8,8 @@
 const lineReader = require('line-reader');
 const csv = require('csv-parser');
 const fs = require('fs');
+const path = require('path');
+const sails = require('sails');
 
 var categories_list = new Array();
 lineReader.eachLine('dictionaries/technologies.csv', function(line) {
@@ -38,6 +40,5 @@ module.exports.custom = {
   categories: categories_list,
   places: places_list,
   abbreviations: abbreviations_map,
-  cities_countries: cities_countries_list,
-  wrappers_folder: '../wrappers/'
+  cities_countries: cities_countries_list
 };

@@ -23,9 +23,7 @@ module.exports = {
   },
 
   fn: async function ({topic}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const github = require(`${wrappers_folder}github_wrapper`);
+    const github = require(`@wrappers/github_wrapper`);
     let github_result = await github.getRepositories(topic);
 
     return github_result;

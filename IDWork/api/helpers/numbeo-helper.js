@@ -29,9 +29,7 @@ module.exports = {
 
 
   fn: async function ({city,country}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const numbeo = require(`${wrappers_folder}numbeo_wrapper`);
+    const numbeo = require(`@wrappers/numbeo_wrapper`);
     let numbeo_indices = await numbeo.getIndicesByLocation(city, country);
     // let numbeo_prices = await numbeo.getPricesByLocation(city, country);
     

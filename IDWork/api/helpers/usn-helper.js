@@ -30,11 +30,9 @@ module.exports = {
   },
 
   fn: async function ({city,country}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
     usn_country = sails.config.custom.abbreviations[country];
 
-    const usnews = require(`${wrappers_folder}usnews_wrapper`);
+    const usnews = require(`@wrappers/usnews_wrapper`);
     let usnews_result = await usnews.getInfos(city, usn_country);
 
     return usnews_result;

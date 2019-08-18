@@ -26,14 +26,12 @@ module.exports = {
 
 
   fn: async function ({keyword}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
     keyword = keyword.replace(/[^A-Za-z0-9]+/g, '');
 
-    const medium = require(`${wrappers_folder}medium_wrapper`);
+    const medium = require(`@wrappers/medium_wrapper`);
     let medium_result = await medium.getPosts(keyword);
 
-    const hackernoon = require(`${wrappers_folder}hackernoon_wrapper`);
+    const hackernoon = require(`@wrappers/hackernoon_wrapper`);
     let hackernoon_result = await hackernoon.getPosts(keyword);
 
     let articles = medium_result.concat(hackernoon_result);

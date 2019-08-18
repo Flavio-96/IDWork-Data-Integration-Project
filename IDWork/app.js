@@ -17,6 +17,8 @@ process.chdir(__dirname);
 //setting the use of .env file
 require('dotenv').config();
 
+require('module-alias/register');
+
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
 var sails;
 var rc;

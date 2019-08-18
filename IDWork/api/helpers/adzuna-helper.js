@@ -30,9 +30,7 @@ module.exports = {
 
 
   fn: async function ({category,place}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const adzuna = require(`${wrappers_folder}adzuna_wrapper`);
+    const adzuna = require('@wrappers/adzuna_wrapper');
     let adzuna_result = await adzuna.getJobsByLocation(category, place);
     
     return adzuna_result;

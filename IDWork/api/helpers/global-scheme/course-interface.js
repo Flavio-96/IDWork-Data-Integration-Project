@@ -24,10 +24,7 @@ module.exports = {
 
 
   fn: async function ({keyword}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-
-    const coursera = require(`../${wrappers_folder}coursera_wrapper`);
+    const coursera = require(`@wrappers/coursera_wrapper`);
     let coursera_courses = await coursera.getCourses(keyword);
 
     var udacity_courses = await Udacity.find({

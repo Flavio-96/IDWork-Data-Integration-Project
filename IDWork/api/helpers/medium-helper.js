@@ -23,9 +23,7 @@ module.exports = {
   },
 
   fn: async function ({keyword}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const medium = require(`${wrappers_folder}medium_wrapper`);
+    const medium = require('@wrappers/medium_wrapper');
     let medium_result = await medium.getPosts(keyword);
 
     return medium_result;

@@ -23,9 +23,7 @@ module.exports = {
   },
 
   fn: async function ({keyword}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const hackernoon = require(`${wrappers_folder}hackernoon_wrapper`);
+    const hackernoon = require(`@wrappers/hackernoon_wrapper`);
     let hackernoon_result = await hackernoon.getPosts(keyword);
 
     return hackernoon_result;

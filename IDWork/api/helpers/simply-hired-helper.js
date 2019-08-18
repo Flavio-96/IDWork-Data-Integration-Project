@@ -30,9 +30,7 @@ module.exports = {
 
 
   fn: async function ({category,place}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
-
-    const simplyhired = require(`${wrappers_folder}simplyhired_wrapper`);
+    const simplyhired = require(`@wrappers/simplyhired_wrapper`);
     let simplyhired_result = await simplyhired.getSalaries(category, place); 
     
     return simplyhired_result;

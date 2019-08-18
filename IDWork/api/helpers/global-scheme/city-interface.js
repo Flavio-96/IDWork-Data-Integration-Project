@@ -29,13 +29,12 @@ module.exports = {
 
   // TODO: use this -> sails.config.appPath
   fn: async function ({city,country}) {
-    wrappers_folder = sails.config.custom.wrappers_folder;
 
-    const numbeo = require(`../${wrappers_folder}numbeo_wrapper`);
+    const numbeo = require(`@wrappers/numbeo_wrapper`);
     let numbeo_indices = await numbeo.getIndicesByLocation(city, country);
     
     usn_country = sails.config.custom.abbreviations[country];
-    const usnews = require(`../${wrappers_folder}usnews_wrapper`);
+    const usnews = require(`@wrappers/usnews_wrapper`);
     let usnews_result = await usnews.getInfos(city, usn_country);
     
     let global_city = {... numbeo_indices, ...usnews_result};
