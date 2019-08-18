@@ -3383,11 +3383,6 @@ img.mfp-img {
 /* Job List Styles
 ---------------------------------------------------------------------- */
 
-.jobs {
-  height: 100vh;
-  overflow: hidden;
-}
-
 .stats-img {
   display: inline-block;
   height: 25px;
@@ -3593,6 +3588,46 @@ img.mfp-img {
 .job-list.full .job-list-content h4 {
   margin-bottom: 15px;
 }
+
+/* Tabs */
+
+ /* Style the tab */
+ .tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  height: 95%s;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  overflow-y: scroll;
+} 
 
 /* Resumes List */
 .resumes-list-content h4 {

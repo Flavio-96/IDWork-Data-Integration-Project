@@ -1,107 +1,151 @@
+<script src="js/searchpage.js"></script>
 <!-- Titlebar
 ================================================== -->
 <div id="titlebar">
-  <div class="container">
-    <div class="ten columns">
-      <h2>Results for <%= category %> in <%= place%></h2>
+    <div class="container">
+        <div class="ten columns">
+            <h2>Results for <%= category %> in <%= place%></h2>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Content
-================================================== -->
+  ================================================== -->
+
+
+
 <div class="jobs container">
-  <!-- Widgets -->
-  <div class="eight columns">
-    <h2>Austin, TX</h2>
-    <h4>Stats</h4>
-    <div style="display: inline-block">
-      <ul>
-        <li><img class="stats-img" src="images/users.svg"/> <%= city.population%> <br> <span>Population</span> </li>
-        <li><img class="stats-img" src="images/users.svg"/> Average annual salary: <%= city.average_salary_USN%></li>
-        <li><img class="stats-img" src="images/sun.svg"/> Average high/low temps: <%= city.temperature%></li>
-      </ul>
+
+
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Jobs')">Jobs</button>
+        <button class="tablinks" onclick="openTab(event, 'City')">City</button>
+        <button class="tablinks" onclick="openTab(event, 'Articles')">Articles</button>
+        <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
+        <button class="tablinks" onclick="openTab(event, 'Repositories')">Repositories</button>
     </div>
-    <div style="display: inline-block">
-      <ul>
-        <li><img class="stats-img" src="images/calendar.svg"/> Median Age: <%= city.median_age%></li>
-        <li><img class="stats-img" src="images/house.svg"/> Median Home Price: <%= city.median_home_price%></li>
-        <li><img class="stats-img" src="images/drop.svg"/> Average annual rainfall: <%= city.average_annual_rainfall%></li>
-      </ul>
+
+    <!-- Tab content -->
+    <div id="Jobs" class="tabcontent">
+        <h2>Jobs</h2>
+        <ul class="job-list full">
+            <% jobs.forEach((job) => {%>
+
+            <li>
+                <a href="job-page.html">
+                    <img src="images/job-list-logo-01.png" alt="" />
+                    <div class="job-list-content">
+                        <h4><%=job.title%></h4>
+                        <div class="job-icons">
+                            <span><i class="fa fa-briefcase"></i> <%=job.company_name%></span>
+                            <% if(job.city){%>
+                            <span><i class="fa fa-map-marker"></i> <%=job.city%></span>
+                            <%}%>
+                </div>
+                <!--
+                <p><%=job.description%></p>
+                            -->
+                        </div>
+                </a>
+                <div class="clearfix"></div>
+            </li>
+            <% });%>
+        </ul>
     </div>
-    <div style="display: inline-block">
-      <ul>
-        <li><img class="stats-img" src="images/bar-chart.svg"/> Unemployment rate: <%= city.unemployment_rate%></li>
-        <li><img class="stats-img" src="images/hotel.svg"/> Median Monthly rent: <%= city.median_monthly_rate%></li>
-        <li><img class="stats-img" src="images/stopwatch.svg"/> Average Commute Time: <%= city.average_commute_time%></li>
-      </ul>
-    </div>
-    <h3>What's like?</h3>
-    <p align="justify"><%= city.whats_like%></p>
-    <h3>What's the cost of living?</h3>
-    <p align="justify"><%= city.cost_of_living%></p>
-    <h3>What's the weather like?</h3>
-    <p align="justify"><%= city.weather%></p>
-    <h3>What's the best way to get around?</h3>
-    <p align="justify"><%= city.commuting%></p>
-    <h3>Who lives here?</h3>
-    <p align="justify"><%= city.who_lives%></p>
-    <h3>What is there to do?</h3>
-    <p align="justify"><%= city.what_to_do%></p>
-  </div>
-  <!-- Widgets / End -->
 
-  <!-- Recent Jobs -->
-  <h2>Jobs</h2>
-  <div class="eight columns jobs">
-    <div>
-      <ul class="job-list full">
-        <% jobs.forEach((job) => {%>
-
-        <li>
-          <a href="job-page.html">
-            <img src="images/job-list-logo-01.png" alt="" />
-            <div class="job-list-content">
-              <h4><%=job.title%></h4>
-              <div class="job-icons">
-                <span
-                  ><i class="fa fa-briefcase"></i> <%=job.company_name%></span
-                >
-                <% if(job.city){%>
-                <span><i class="fa fa-map-marker"></i> <%=job.city%></span>
-                <%}%>
-              </div>
-              <!--
-			  <p><%=job.description%></p>
-			  -->
-            </div>
-          </a>
-          <div class="clearfix"></div>
-        </li>
-        <% });%>
-      </ul>
-      <div class="clearfix"></div>
-
-      <!--
-		<div class="pagination-container">
-			<nav class="pagination">
-				<ul>
-					<li><a href="#" class="current-page">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li class="blank">...</li>
-					<li><a href="#">22</a></li>
-				</ul>
-			</nav>
-
-			<nav class="pagination-next-prev">
-				<ul>
-					<li><a href="#" class="prev">Previous</a></li>
-					<li><a href="#" class="next">Next</a></li>
-				</ul>
-			</nav>
+    <div id="City" class="tabcontent">
+        <h2>Austin, TX</h2>
+        <h4>Stats</h4>
+        <div style="display: inline-block">
+            <ul>
+                <li><img class="stats-img" src="images/users.svg" /> <%= city.population%> <br> <span>Population</span>
+                </li>
+                <li><img class="stats-img" src="images/users.svg" /> Average annual salary:
+                    <%= city.average_salary_USN%></li>
+                <li><img class="stats-img" src="images/sun.svg" /> Average high/low temps: <%= city.temperature%></li>
+            </ul>
         </div>
-        -->
+        <div style="display: inline-block">
+            <ul>
+                <li><img class="stats-img" src="images/calendar.svg" /> Median Age: <%= city.median_age%></li>
+                <li><img class="stats-img" src="images/house.svg" /> Median Home Price: <%= city.median_home_price%>
+                </li>
+                <li><img class="stats-img" src="images/drop.svg" /> Average annual rainfall:
+                    <%= city.average_annual_rainfall%></li>
+            </ul>
+        </div>
+        <div style="display: inline-block">
+            <ul>
+                <li><img class="stats-img" src="images/bar-chart.svg" /> Unemployment rate: <%= city.unemployment_rate%>
+                </li>
+                <li><img class="stats-img" src="images/hotel.svg" /> Median Monthly rent: <%= city.median_monthly_rate%>
+                </li>
+                <li><img class="stats-img" src="images/stopwatch.svg" /> Average Commute Time:
+                    <%= city.average_commute_time%></li>
+            </ul>
+        </div>
+        <h3>What's like?</h3>
+        <p align="justify"><%= city.whats_like%></p>
+        <h3>What's the cost of living?</h3>
+        <p align="justify"><%= city.cost_of_living%></p>
+        <h3>What's the weather like?</h3>
+        <p align="justify"><%= city.weather%></p>
+        <h3>What's the best way to get around?</h3>
+        <p align="justify"><%= city.commuting%></p>
+        <h3>Who lives here?</h3>
+        <p align="justify"><%= city.who_lives%></p>
+        <h3>What is there to do?</h3>
+        <p align="justify"><%= city.what_to_do%></p>
     </div>
-  </div>
+
+
+    <div id="Articles" class="tabcontent">
+        <h3>Articles</h3>
+        <ul class="job-list full">
+            <% articles.forEach((article) => {%>
+
+            <li>
+                <img style='width: 200px; height: 100px;' src=<%= article.img_url%> />
+                <div style="display: inline">
+                    <a href=<%= article.article_url %>><h3><%= article.title %></h3></a>
+                    <span>by <%= article.author%></span>
+                    <div class="clearfix"></div>
+                </div>
+            </li>
+            <% });%>
+        </ul>
+    </div>
+
+    <div id="Courses" class="tabcontent">
+        <h3>Courses</h3>
+        <ul class="job-list full">
+            <% courses.forEach((course) => {%>
+
+            <li>
+                <img style='width: 200px; height: 100px;' src=<%= course.url_image%> />
+                <div style="display: inline">
+                    <a href=<%= course.url %>><h3><%= course.title %></h3></a>
+                    <div class="clearfix"></div>
+                </div>
+            </li>
+            <% });%>
+        </ul>
+    </div>
+
+    <div id="Repositories" class="tabcontent">
+        <h3>Repositories</h3>
+        <ul class="job-list full">
+            <% repositories.forEach((repo) => {%>
+
+            <li>
+                <div style="display: inline">
+                    <a href=<%= repo.url %>><h3><%= repo.name %></h3></a>
+                    <div class="clearfix"></div>
+                </div>
+            </li>
+            <% });%>
+        </ul>
+    </div>
+
 </div>
