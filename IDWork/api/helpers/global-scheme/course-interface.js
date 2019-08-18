@@ -30,6 +30,7 @@ module.exports = {
     const coursera = require(`../${wrappers_folder}coursera_wrapper`);
     let coursera_courses = await coursera.getCourses(keyword);
 
+    // !!!! IMPORTANT: Update case insensitive research !!!!
     var udacity_courses = await Udacity.find({
       or:[
         {title: { contains: keyword }},
