@@ -8,7 +8,7 @@
         <div class="search-container">
           <!-- Form -->
           <h2>Find job</h2>
-          <form method="GET" action="/jobs">
+          <form method="GET" action="/search">
             <div>
               <label>Keyword </label>
               <select
@@ -44,6 +44,21 @@
     <!-- Categories Group -->
     <div class="categories-group">
       <div class="container">
+        <div class="four columns"><h4>Recent searches </h4></div>
+        <div class="four columns">
+          <ul>
+            <% recentSearches.forEach((search) => { %>
+
+            
+            <li><a href="/search?category=<%= search.keyword%>&place=<%=search.city%>"><%= search.keyword%> in <%=search.city%></a></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="categories-group">
+      <div class="container">
         <div class="four columns"><h4>Web, Software & IT</h4></div>
         <div class="four columns">
           <ul>
@@ -75,39 +90,6 @@
             <li><a href="#">Web Design</a></li>
             <li><a href="#">eCommerce</a></li>
           </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider-line"></div>
-    <div class="margin-top-50"></div>
-
-    <!-- Recent Works -->
-    <div class="container">
-      <!-- Recent Jobs -->
-      <div class="eleven columns">
-        <div class="padding-right">
-          <h3 class="margin-bottom-25">Recent Jobs</h3>
-          <ul class="job-list">
-            <li>
-              <a href="job">
-                <div class="job-list-content">
-                  <h4>Best lavoro</h4>
-                  <div class="job-icons">
-                    <span><i class="fa fa-briefcase"></i> Da Pasquale</span>
-                    <span><i class="fa fa-map-marker"></i> Los Angeles</span>
-                    <span><i class="fa fa-money"></i> $115 / hour</span>
-                  </div>
-                </div>
-              </a>
-              <div class="clearfix"></div>
-            </li>
-          </ul>
-
-          <a href="browse-jobs.html" class="button centered"
-            ><i class="fa fa-plus-circle"></i> Show More Jobs</a
-          >
-          <div class="margin-bottom-55"></div>
         </div>
       </div>
     </div>

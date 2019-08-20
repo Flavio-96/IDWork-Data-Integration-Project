@@ -131,6 +131,44 @@ module.exports = {
       type: 'string'
     },
   },
+
+  findByPlace: async (place) => {
+
+    const util = require('util');
+    const redis = sails.getDatastore('cache');
+
+    var key = `city:${place}`;
+
+    var city;
+
+    let value = await redis.leaseConnection(async (db) => {
+      let found = await (util.promisify(db.get).bind(db))(key);
+
+      if (found === null) {
+        let city_name = place.split(", ")[0];
+        city = await City.find({ name: city_name });
+
+        let oggettoJSON = { 0: city };
+
+        let expiresIn = 1000 * 60 * 60 * 24; //One day in milliseconds
+
+        // Convert `expiresIn` (which is expressed in milliseconds) to seconds,
+        // because unlike JavaScript, Redis likes to work with whole entire seconds.
+        let ttlInSeconds = Math.ceil(expiresIn / 1000);
+
+        await (util.promisify(db.setex).bind(db))(key, ttlInSeconds, JSON.stringify(oggettoJSON));
+
+      } else {
+        //get articles from cache and parse the string into JSON
+        city = JSON.parse(await (util.promisify(db.get).bind(db))(key));
+
+        //take the array
+        city = city[0];
+      }
+    });
+    return city;
+  },
+
   datastore: 'mongodb',
 
 };

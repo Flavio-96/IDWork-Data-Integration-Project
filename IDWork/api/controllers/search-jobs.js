@@ -56,7 +56,6 @@ module.exports = {
 
     let city_info = await City.find({ name: city });
 
-    console.log(adzuna_result);
 
     return {
       category: category,

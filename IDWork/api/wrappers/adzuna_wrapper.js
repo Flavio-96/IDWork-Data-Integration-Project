@@ -34,10 +34,11 @@ async function getJobsByLocation(keyword, location) {
 
     if (response.status == 200) {
       let rawJobs = response.data.results; //jobs with all the charateristics retrivied
+
       let refinedJobs = [];
 
       // clean jobs with only informations that are useful for us.
-      rawJobs.forEach(rawJob => {
+      await Promise.all(rawJobs.map(async (rawJob) => {
         let {
           title,
           description,
@@ -52,7 +53,8 @@ async function getJobsByLocation(keyword, location) {
         title = title.replace(/<\/?[^>]+(>|$)/g, "");
         let small_description = description.replace(/<\/?[^>]+(>|$)/g, "");
 
-        getFullDescription(redirect_url).then((full_description) => {
+        let full_description = await getFullDescription(redirect_url);
+        console.log(full_description);
 
           let refinedJob = {
             title: title,
@@ -70,9 +72,8 @@ async function getJobsByLocation(keyword, location) {
           };
 
           refinedJobs.push(refinedJob);
-        });
 
-      });
+      }));
 
       return refinedJobs;
     }

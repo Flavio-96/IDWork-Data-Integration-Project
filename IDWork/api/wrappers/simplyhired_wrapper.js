@@ -30,7 +30,7 @@ async function getSalaries(job, location) {
         job_name: jobHeader[0],
         min_salary: salaries[0],
         avg_salary: salaries[2],
-        max_salaries: salaries[4],
+        max_salary: salaries[4],
       }
 
       return data;

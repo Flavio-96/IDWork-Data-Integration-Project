@@ -30,6 +30,7 @@ module.exports = {
 
 
   fn: async function ({category,place}) {
+
     const adzuna = require('@wrappers/adzuna_wrapper');
     let adzuna_result = await adzuna.getJobsByLocation(category, place);
     

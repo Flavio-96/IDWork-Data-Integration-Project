@@ -23,19 +23,20 @@ module.exports = {
   },
 
 
-  fn: async function ({keyword}) {
+  fn: async function ({ keyword }) {
+    
     const coursera = require(`@wrappers/coursera_wrapper`);
     let coursera_courses = await coursera.getCourses(keyword);
 
     // !!!! IMPORTANT: Update case insensitive research !!!!
     var udacity_courses = await Udacity.find({
-      or:[
-        {title: { contains: keyword }},
-        {description: { contains: keyword }},
-        {skills: { contains: keyword }}
-      ] 
+      or: [
+        { title: { contains: keyword } },
+        { description: { contains: keyword } },
+        { skills: { contains: keyword } }
+      ]
     });
-    
+
     let global_courses = coursera_courses.concat(udacity_courses);
 
     return global_courses;
