@@ -4,7 +4,7 @@
 <div id="titlebar">
     <div class="container">
         <div class="ten columns">
-            <h2>Results for <%= category %> in <%= place%></h2>
+            <h2>Results for <%= category %> jobs in <%= place%></h2>
         </div>
     </div>
 </div>
@@ -29,8 +29,13 @@
     <!-- Tab content -->
     <div id="Jobs" class="tabcontent">
         <h2>Jobs</h2>
+        <ul>Expected salaries for jobs with this keyword in the selected city:
+            <li><b>Minimum salary</b>: <%=jobs_info.min_salary%>$</li>
+            <li><b>Average salary</b>: <%= jobs_info.avg_salary%>$</li>
+            <li><b>Maximum salary</b>: <%=jobs_info.max_salary%>$</li>
+        </ul>
         <ul class="job-list full">
-            <% jobs.forEach((job) => {%>
+            <% jobs_info.ads.forEach((job) => {%>
 
             <li>
                 <a href="job-page.html">

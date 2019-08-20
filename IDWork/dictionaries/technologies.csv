@@ -1,24 +1,24 @@
 Node.js
 Frontend Development
-iOS 
-Android 
+iOS
+Android
 IoT & Hybrid Apps
 Electron
 Cordova
-React Native 
+React Native
 Linux
 macOS
 watchOS
 JVM
 Salesforce
 Windows
-IPFS 
+IPFS
 Fuse
 Heroku
 Raspberry Pi
 Qt
 WebExtensions
-RubyMotion 
+RubyMotion
 Smart TV
 .NET
 Roslyn
@@ -26,13 +26,13 @@ Amazon Alexa
 DigitalOcean
 Flutter
 Home Assistant
-IBM Cloud 
-Firebase 
+IBM Cloud
+Firebase
 R
 Adafruit
 Cloudflare
 Python
-Asyncio 
+Asyncio
 PureScript
 Go
 Scala
@@ -51,7 +51,7 @@ D
 Common Lisp
 Perl
 Groovy
-Dart 
+Dart
 RxJava
 Kotlin
 OCaml
@@ -85,7 +85,7 @@ BEM
 Flexbox
 Material Design
 D3
-jQuery 
+jQuery
 Web Audio
 Offline-First
 Static Website Services
@@ -104,7 +104,7 @@ Progressive Web Apps
 choo
 Redux
 webpack
-Browserify 
+Browserify
 Ant Design
 Less
 WebGL
@@ -129,7 +129,7 @@ Dropwizard
 Kubernetes
 Lumen
 Apache Wicket
-Vert.x 
+Vert.x
 Terraform
 Vapor
 Dash
@@ -144,7 +144,7 @@ Deep Learning
 TensorFlow
 Deep Vision
 Static Analysis & Code Quality
-Information Retrieval 
+Information Retrieval
 Quantum Computing
 Big Data
 Hadoop
@@ -186,7 +186,7 @@ CouchDB
 HBase
 Redis
 Security
-CTF 
+CTF
 Malware Analysis
 Android Security
 Hacking
@@ -216,8 +216,8 @@ Sysadmin
 Analytics
 REST
 Selenium
-Appium 
-Continuous Integration 
+Appium
+Continuous Integration
 Continuous Delivery
 Services Engineering
 Open Source
@@ -241,7 +241,7 @@ Magento
 Visual Regression Testing
 Jupyter
 Prisma
-Software Architecture 
+Software Architecture
 DevOps
 Big Data
 Keras

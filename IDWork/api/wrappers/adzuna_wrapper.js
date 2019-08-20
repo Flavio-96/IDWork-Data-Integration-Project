@@ -54,7 +54,6 @@ async function getJobsByLocation(keyword, location) {
         let small_description = description.replace(/<\/?[^>]+(>|$)/g, "");
 
         let full_description = await getFullDescription(redirect_url);
-        console.log(full_description);
 
           let refinedJob = {
             title: title,

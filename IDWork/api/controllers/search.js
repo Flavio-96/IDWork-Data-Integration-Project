@@ -34,7 +34,12 @@ module.exports = {
 
   fn: async function ({ category, place }) {
 
-    const globalScheme = sails.helpers.globalScheme;
+    if (!sails.config.custom.categories.includes(category))
+      throw 'badParams';
+
+    if (place)
+      if (!sails.config.custom.places.includes(place.toLowerCase()))
+        throw 'badParams';
 
     //Adding the search to the recent ones
     await RecentSearches.add({ keyword: category, city: place });
@@ -42,17 +47,7 @@ module.exports = {
     //Retrieve jobs info
     let jobs = await Job.findByCategoryAndPlace(category, place);
 
-    /*
-    let jobs = await globalScheme.jobInterface.with({
-      keyword: category,
-      city: place
-    })*/
-
-    /*
-    let city_name = place.split(", ")[0];
-    let city = await City.find({ name: city_name });
-    */
-
+    //Retrieve city info
     let city = await City.findByPlace(place);
     city = city[0];
 
@@ -66,7 +61,7 @@ module.exports = {
     let repositories = await Repository.findByKeyword(category);
 
     return {
-      jobs: jobs.ads,
+      jobs_info: jobs,
       city: city,
       articles: articles,
       courses: courses,
