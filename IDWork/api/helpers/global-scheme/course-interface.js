@@ -37,6 +37,8 @@ module.exports = {
       ]
     });
 
+    
+
     let global_courses = coursera_courses.concat(udacity_courses);
 
     return global_courses;

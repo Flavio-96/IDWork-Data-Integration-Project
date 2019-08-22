@@ -31,7 +31,13 @@ async function getPosts(keyword) {
           let { title, creatorId } = posts[id];
           let { recommends } = posts[id].virtuals;
           let img_url = posts[id].virtuals.previewImage.imageId;
+
+          if (img_url == ''){
+            img_url = `1*I0E7U5xI-4UvnkExSGKp_w.png`;
+          }
+
           let author = authors[creatorId].name; //retrieve author's name using his id
+
           refinedPosts.push({
             title: title,
             author: author,

@@ -1,3 +1,13 @@
+function openCollapsible(collapsible) {
+  collapsible.classList.toggle("active");
+    var content = collapsible.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+}
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;

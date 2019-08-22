@@ -24,8 +24,6 @@ module.exports = {
 		},
 	},
 
-
-
 	fn: async function () {
 
 		let recentSearches = await RecentSearches.get();

@@ -11,7 +11,8 @@ async function getRepositories(topic) {
 
   //request parameters
   let params = {
-    q: topic
+    q: topic,
+    sort: "stars"
   };
 
   try {

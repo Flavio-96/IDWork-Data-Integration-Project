@@ -16,7 +16,7 @@ async function getCourses() {
       let courses = data.courses;
 
       let refinedCourses = [];
-      var count = 0;
+
       // clean course with only informations that are useful for us.
       courses.forEach(course => {
         let { title, summary, image, slug, metadata, level } = course;

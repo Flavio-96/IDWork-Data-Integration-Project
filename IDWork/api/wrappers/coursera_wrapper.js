@@ -43,32 +43,32 @@ async function getCourses(keyword) {
       rawCourses = rawCourses.concat(data.results[1].hits);
 
       rawCourses.forEach(course => {
-        let {
-          name,
-          _snippetResult,
-          imageUrl,
-          objectUrl,
-          skills,
-          productDifficultyLevel
-        } = course;   //destructoring
-        
-        let description;
 
-        if(course._snippetResult){
-          description = _snippetResult.description.value;
+        if (course.language == 'English') {
+          let {
+            name,
+            imageUrl,
+            objectUrl,
+            skills,
+            productDifficultyLevel
+          } = course;   //destructoring
+
+          let description = course._snippetResult.description.value;
+          
+          let refinedCourse = {
+            title: name,
+            category: keyword,
+            description: description,
+            difficulty: productDifficultyLevel,
+            skills: skills,
+            url_image: imageUrl,
+            url: `https://www.coursera.org${objectUrl}`,
+          };
+
+          console.log(refinedCourse)
+
+          refinedCourses.push(refinedCourse);
         }
-
-        let refinedCourse = {
-          title: name,
-          category: keyword,
-          description: description,
-          difficulty: productDifficultyLevel,
-          skills: skills,
-          url_image: imageUrl,
-          url: `https://www.coursera.org${objectUrl}`,
-        };
-
-        refinedCourses.push(refinedCourse);
       });
 
 

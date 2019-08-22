@@ -63,6 +63,11 @@ async function getIndicesByLocation(city, country) {
       health_care_index
     } = response.data;
 
+    quality_of_life_index = Number(quality_of_life_index).toFixed(2);
+    rent_index = Number(rent_index).toFixed(2);
+    crime_index = Number(crime_index).toFixed(2);
+    health_care_index = Number(health_care_index).toFixed(2);
+
     //name has city name and country name separated by a comma. We need it splitted
 
     let city_and_nation_splitted = name.split(", ");

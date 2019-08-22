@@ -9,4 +9,5 @@ module.exports.routes = {
 
   'GET /': { action: 'homepage' },
   'GET /search': { action: 'search' },
+  'GET /job': {action: 'job'}
 };

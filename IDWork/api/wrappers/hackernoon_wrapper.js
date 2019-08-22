@@ -27,6 +27,10 @@ async function getPosts(keyword) {
         if(img_url[0] == '/'){
           img_url = `https://hackernoon.com${img_url}`;
         }
+        if(img_url == ''){
+          img_url = 'https://hackernoon.com/Devimg/story-image-default.png';
+        }
+        
         img_urls.push(img_url);
       });
 

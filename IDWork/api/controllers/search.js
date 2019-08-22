@@ -1,6 +1,5 @@
 module.exports = {
 
-
   friendlyName: 'Jobs by category',
 
 
@@ -23,7 +22,7 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/search-page' //Bisogna mettere quella corretta che mi passa antonio
+      viewTemplatePath: 'pages/search-page'
     },
     badParams: {
       description: 'One or many of the provided params does not match any word in dictionaries',
@@ -32,7 +31,7 @@ module.exports = {
   },
 
 
-  fn: async function ({ category, place }) {
+  fn: async function ({category, place}) {
 
     if (!sails.config.custom.categories.includes(category))
       throw 'badParams';
@@ -59,6 +58,8 @@ module.exports = {
 
     //Retrieve courses info
     let repositories = await Repository.findByKeyword(category);
+
+    this.req.session.jobs = jobs;   // returned from a database
 
     return {
       jobs_info: jobs,

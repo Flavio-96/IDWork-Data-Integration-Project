@@ -26,7 +26,7 @@ module.exports = {
 
 
   fn: async function ({keyword}) {
-    keyword = keyword.replace(/[^A-Za-z0-9]+/g, '');
+    keyword = keyword.replace(/[^\ A-Za-z0-9]+/g, '').replace(/[\ ]+/g, '-');
 
     const medium = require(`@wrappers/medium_wrapper`);
     let medium_result = await medium.getPosts(keyword);

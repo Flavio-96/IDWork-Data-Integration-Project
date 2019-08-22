@@ -25,7 +25,7 @@ module.exports = {
         const util = require('util');
         const redis = sails.getDatastore('cache');
 
-        var key = `article:${category}`;
+        var key = `article:${category.replace(/ /g, '')}`;
 
         var articles;
 
