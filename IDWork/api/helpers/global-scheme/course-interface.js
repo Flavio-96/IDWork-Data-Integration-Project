@@ -26,7 +26,14 @@ module.exports = {
   fn: async function ({ keyword }) {
     
     const coursera = require(`@wrappers/coursera_wrapper`);
+
+    let global_courses = [];
+
     let coursera_courses = await coursera.getCourses(keyword);
+
+    if(coursera_courses != null){
+      global_courses = global_courses.concat(coursera_courses);
+    }
 
     // !!!! IMPORTANT: Update case insensitive research !!!!
     var udacity_courses = await Udacity.find({
@@ -37,9 +44,9 @@ module.exports = {
       ]
     });
 
-    
-
-    let global_courses = coursera_courses.concat(udacity_courses);
+    if(udacity_courses != null){
+      global_courses = global_courses.concat(udacity_courses);
+    }
 
     return global_courses;
   }

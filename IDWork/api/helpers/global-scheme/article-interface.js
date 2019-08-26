@@ -28,13 +28,20 @@ module.exports = {
   fn: async function ({keyword}) {
     keyword = keyword.replace(/[^\ A-Za-z0-9]+/g, '').replace(/[\ ]+/g, '-');
 
+    let articles = [];
+
     const medium = require(`@wrappers/medium_wrapper`);
     let medium_result = await medium.getPosts(keyword);
+
+    if(medium_result != null)
+      articles = articles.concat(medium_result);
 
     const hackernoon = require(`@wrappers/hackernoon_wrapper`);
     let hackernoon_result = await hackernoon.getPosts(keyword);
 
-    let articles = medium_result.concat(hackernoon_result);
+    if(hackernoon_result != null){
+      articles = articles.concat(hackernoon_result);
+    }
 
     return articles;
   }

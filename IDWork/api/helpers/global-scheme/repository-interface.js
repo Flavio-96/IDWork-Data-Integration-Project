@@ -28,6 +28,7 @@ module.exports = {
     fn: async function ({ keyword }) {
 
         const github = require(`@wrappers/github_wrapper`);
+
         let github_result = await github.getRepositories(keyword);
 
         return github_result;

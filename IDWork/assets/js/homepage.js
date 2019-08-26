@@ -146,8 +146,8 @@ $(document).ready(function() {
     { id: "tensorflow", text: "TensorFlow" },
     { id: "deep vision", text: "Deep Vision" },
     {
-      id: "static analysis & code quality",
-      text: "Static Analysis & Code Quality"
+      id: "static analysis",
+      text: "Static Analysis"
     },
     { id: "information retrieval", text: "Information Retrieval" },
     { id: "quantum computing", text: "Quantum Computing" },

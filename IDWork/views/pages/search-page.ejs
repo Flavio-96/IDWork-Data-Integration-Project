@@ -40,6 +40,9 @@
       <div class="twelve columns">
 
         <ul class="job-list full">
+          <%if(jobs_info.ads.length === 0) { %>
+            <div>No jobs found!</div>
+          <%}else{%>
           <% var i = 0; 
           for(let job of jobs_info.ads) {%>
 
@@ -65,7 +68,7 @@
           <div class="clearfix"></div>
       </li>
       <% i++;
-        };%>
+        }}%>
         </ul>
       </div>
     </div>
@@ -73,168 +76,164 @@
 
   <div id="City" class="tabcontent">
     <h1><%=place.toUpperCase()%></h1>
-    <div class="container">
-      <div class='four columns'>
-        <h3>Stats</h3>
-        <ul>
-          <li><i class="fa fa-users"></i>
-            <em>Population</em>
-            <strong><%= city.population%></strong>
+          <div class="container">
+            <div class='four columns'>
+              <h3>Stats</h3>
+              <ul>
+                <li><i class="fa fa-users"></i>
+                  <em>Population</em>
+                  <strong><%= city.population%></strong>
 
-          </li>
-          <li><i class="fa fa-money"></i>
-            <em>Average annual salary</em>
-            <strong><%= city.average_salary_USN%></strong>
-          </li>
-          <li><i class="fa fa-thermometer-empty"></i>
-            <em>Average high/low temps:</em>
-            <strong><%= city.temperature%></strong>
-          </li>
-          <li><i class="fa fa-calendar"></i>
-            <em>Median Age: </em>
-            <strong><%= city.median_age%></strong>
-          </li>
-          <li><i class="fa fa-home"></i>
-            <em>Median Home Price: </em>
-            <strong><%= city.median_home_price%></strong>
-          </li>
-          <li><i class="fa fa-tint"></i>
-            <em>Average annual rainfall:</em>
-            <strong><%= city.average_annual_rainfall%></strong>
-          </li>
-          <li><i class="fa fa-bar-chart"></i>
-            <em>Unemployment rate: </em>
-            <strong><%= city.unemployment_rate%></strong>
-          </li>
-          <li><i class="fa fa-building"></i>
-            <em>Median Monthly rent: </em>
-            <strong><%= city.median_monthly_rate%></strong>
-          </li>
-          <li><i class="fa fa-car"></i>
-            <em>Average Commute Time:</em>
-            <strong><%= city.average_commute_time%></strong>
-          </li>
-        </ul>
-        <h3>Numbeo indices</h3>
-        <ul>
-          <li>
-            <i class="fa fa-heart"></i>
-            <em>Quality of life index</em>
-            <strong><%= Number(city.quality_of_life_index).toFixed(2)%></strong>
-          </li>
-          <li>
-            <i class="fa fa-building"></i>
-            <em>Rent index</em>
-            <strong><%= city.rent_index%></strong>
-          </li>
-          <li>
-            <i class="fa fa-bar-chart"></i>
-            <em>Crime index</em>
-            <strong><%= city.crime_index%></strong>
-          </li>
-          <li>
-            <i class="fa fa-medkit"></i>
-            <em>Healthcare index</em>
-            <strong><%= city.health_care_index%></strong>
-          </li>
-        </ul>
+                </li>
+                <li><i class="fa fa-money"></i>
+                  <em>Average annual salary</em>
+                  <strong><%= city.average_salary_USN%></strong>
+                </li>
+                <li><i class="fa fa-thermometer-empty"></i>
+                  <em>Average high/low temps:</em>
+                  <strong><%= city.temperature%></strong>
+                </li>
+                <li><i class="fa fa-calendar"></i>
+                  <em>Median Age: </em>
+                  <strong><%= city.median_age%></strong>
+                </li>
+                <li><i class="fa fa-home"></i>
+                  <em>Median Home Price: </em>
+                  <strong><%= city.median_home_price%></strong>
+                </li>
+                <li><i class="fa fa-tint"></i>
+                  <em>Average annual rainfall:</em>
+                  <strong><%= city.average_annual_rainfall%></strong>
+                </li>
+                <li><i class="fa fa-bar-chart"></i>
+                  <em>Unemployment rate: </em>
+                  <strong><%= city.unemployment_rate%></strong>
+                </li>
+                <li><i class="fa fa-building"></i>
+                  <em>Median Monthly rent: </em>
+                  <strong><%= city.median_monthly_rate%></strong>
+                </li>
+                <li><i class="fa fa-car"></i>
+                  <em>Average Commute Time:</em>
+                  <strong><%= city.average_commute_time%></strong>
+                </li>
+              </ul>
+              <h3>Numbeo indices</h3>
+              <ul>
+                <li>
+                  <i class="fa fa-heart"></i>
+                  <em>Quality of life index</em>
+                  <strong><%= Number(city.quality_of_life_index).toFixed(2)%></strong>
+                </li>
+                <li>
+                  <i class="fa fa-building"></i>
+                  <em>Rent index</em>
+                  <strong><%= city.rent_index%></strong>
+                </li>
+                <li>
+                  <i class="fa fa-bar-chart"></i>
+                  <em>Crime index</em>
+                  <strong><%= city.crime_index%></strong>
+                </li>
+                <li>
+                  <i class="fa fa-medkit"></i>
+                  <em>Healthcare index</em>
+                  <strong><%= city.health_care_index%></strong>
+                </li>
+              </ul>
 
-      </div>
-      <div class='eleven columns'>
-        <h3>What's like?</h3>
-        <p align="justify"><%= city.whats_like%></p>
-        <h3>What's the cost of living?</h3>
-        <p align="justify"><%= city.cost_of_living%></p>
-        <h3>What's the weather like?</h3>
-        <p align="justify"><%= city.weather%></p>
-        <h3>What's the best way to get around?</h3>
-        <p align="justify"><%= city.commuting%></p>
-        <h3>Who lives here?</h3>
-        <p align="justify"><%= city.who_lives%></p>
-        <h3>What is there to do?</h3>
-        <p align="justify"><%= city.what_to_do%></p>
-      </div>
-    </div>
-  </div>
-
-
-  <div id="Articles" class="tabcontent">
-    <h1>Articles</h1>
-    <ul class="job-list full">
-      <%for (let article of articles) {%>
-
-      <li>
-        <% if(article != null) { %>
-        <div class="container">
-          <img class="resource-item-img" src=<%= article.img_url%> />
-          <div class="ten columns">
-            <a class="button resource-item" href="<%= article.article_url%>" target="_blank">
-              <%= article.title %>
-            </a>
-            <div style="margin-left: 3%;">by <em><%= article.author%></em></div>
-          </div>
-        </div>
-      </li>
-      <% }else{ %>
-      <div>No articles found!</div>
-      <% break;
-      }};%>
-    </ul>
-  </div>
-
-  <div id="Courses" class="tabcontent">
-    <h1>Courses</h1>
-    <ul class="job-list full">
-      <% for(let course of courses) {%>
-
-      <li>
-        <% if(course != null) { %>
-        <div class="container">
-          <img class="resource-item-img course-img" src=<%= course.url_image%> />
-          <div class="ten columns">
-            <a class="button resource-item" href="<%= course.url%>" target="_blank">
-              <%= course.title %>
-            </a>
-            <div style="margin-left: 2%;"><em>Difficulty</em>:<strong> <%= course.difficulty%></strong></div>
-            <div style="margin-left: 2%;">
-              <em>Description</em>: <%- course.description %>...
+            </div>
+            <div class='eleven columns'>
+              <h3>What's like?</h3>
+              <p align="justify"><%= city.whats_like%></p>
+              <h3>What's the cost of living?</h3>
+              <p align="justify"><%= city.cost_of_living%></p>
+              <h3>What's the weather like?</h3>
+              <p align="justify"><%= city.weather%></p>
+              <h3>What's the best way to get around?</h3>
+              <p align="justify"><%= city.commuting%></p>
+              <h3>Who lives here?</h3>
+              <p align="justify"><%= city.who_lives%></p>
+              <h3>What is there to do?</h3>
+              <p align="justify"><%= city.what_to_do%></p>
             </div>
           </div>
+      </div>
 
-        </div>
-      </li>
-      <% }else{ %>
-      <div>No courses found!</div>
-      <% break;
-      }};%>
+
+      <div id="Articles" class="tabcontent">
+        <h1>Articles</h1>
+        <%if(articles.length === 0) { %>
+        <div>No articles found!</div>
+        <%}else{%>
+        <ul class="job-list full">
+          <%for (let article of articles) {%>
+          <li>
+            <div class="container">
+              <img class="resource-item-img" src=<%= article.img_url%> />
+              <div class="ten columns">
+                <a class="button resource-item" href="<%= article.article_url%>" target="_blank">
+                  <%= article.title %>
+                </a>
+                <div style="margin-left: 3%;">by <em><%= article.author%></em></div>
+              </div>
+            </div>
+          </li>
+          <%}}%>
+        </ul>
+      </div>
+
+      <div id="Courses" class="tabcontent">
+        <h1>Courses</h1>
+        <%if(courses.length === 0) { %>
+          <div>No courses found!</div>
+        <%}else{%>
+        <ul class="job-list full">
+          <% for(let course of courses) {%>
+
+          <li>
+            <div class="container">
+              <img class="resource-item-img course-img" src=<%= course.url_image%> />
+              <div class="ten columns">
+                <a class="button resource-item" href="<%= course.url%>" target="_blank">
+                  <%= course.title %>
+                </a>
+                <div style="margin-left: 2%;"><em>Difficulty</em>:<strong> <%= course.difficulty%></strong></div>
+                <div style="margin-left: 2%;">
+                  <em>Description</em>: <%- course.description %>...
+                </div>
+              </div>
+
+            </div>
+          </li>
+          <%}}%>
     </ul>
   </div>
 
   <div id="Repositories" class="tabcontent">
     <h1>Repositories</h1>
-    <ul class="job-list full">
-      <% for(let repo of repositories) {%>
-      <li style="padding-bottom: 20px;">
-        <% if(repo != null) { %>
-        <div class="container">
-          <div class="ten columns">
-            <a class="button resource-item" href="<%= repo.url%>" target="_blank">
-              <%= repo.name %>
-            </a>
-            <div class="job-icons" style="margin-left: 2.5%;">
-                <i class="fa fa-star"></i>
-              <em><%= repo.stars%></em>
-            </div>
-            <div style="margin-left: 2.5%;">
-              <em>Description</em>: <%- repo.description%>
-            </div>
-          </div>
-        </div>
-      </li>
-      <% }else{ %>
+    <%if(repositories.length === 0) { %>
       <div>No repositories found!</div>
-      <% break;
-      }};%>
+    <%}else{%>
+    <ul class="job-list full">
+          <% for(let repo of repositories) {%>
+          <li style="padding-bottom: 20px;">
+            <div class="container">
+              <div class="ten columns">
+                <a class="button resource-item" href="<%= repo.url%>" target="_blank">
+                  <%= repo.name %>
+                </a>
+                <div class="job-icons" style="margin-left: 2.5%;">
+                  <i class="fa fa-star"></i>
+                  <em><%= repo.stars%></em>
+                </div>
+                <div style="margin-left: 2.5%;">
+                  <em>Description</em>: <%- repo.description%>
+                </div>
+              </div>
+            </div>
+          </li>
+          <%}}%>
     </ul>
   </div>
 

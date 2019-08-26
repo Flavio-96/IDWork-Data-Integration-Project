@@ -32,7 +32,7 @@ module.exports = {
 
 
   fn: async function ({category, place}) {
-
+    
     if (!sails.config.custom.categories.includes(category))
       throw 'badParams';
 

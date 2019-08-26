@@ -50,7 +50,7 @@
             <% recentSearches.forEach((search) => { %>
 
             
-            <li><a href="/search?category=<%= search.keyword%>&place=<%=search.city%>"><%= search.keyword%> in <%=search.city%></a></li>
+            <li><a href="/search?category=<%= search.keyword.replace(/[#]/g, '%23')%>&place=<%=search.city%>"><%= search.keyword%> in <%=search.city%></a></li>
             <% }) %>
           </ul>
         </div>

@@ -137,20 +137,15 @@
   { "id": "Data Science", "text": "Data Science" },
   { "id": "Machine Learning", "text": "Machine Learning" },
   { "id": "H2O", "text": "H2O" },
-  {
-    "id": "Natural Language Processing",
-    "text": "Natural Language Processing"
-  },
+  {"id": "Natural Language Processing","text": "Natural Language Processing"},
   { "id": "NLP", "text": "NLP" },
   { "id": "Cryptography", "text": "Cryptography" },
   { "id": "Computer Vision", "text": "Computer Vision" },
   { "id": "Deep Learning", "text": "Deep Learning" },
   { "id": "TensorFlow", "text": "TensorFlow" },
   { "id": "Deep Vision", "text": "Deep Vision" },
-  {
-    "id": "Static Analysis & Code Quality",
-    "text": "Static Analysis & Code Quality"
-  },
+  { "id": "Static Analysis", "text": "Static Analysis"},
+  { "id": "Code Quality", "text": "Code Quality"},
   { "id": "Information Retrieval", "text": "Information Retrieval" },
   { "id": "Quantum Computing", "text": "Quantum Computing" },
   { "id": "Big Data", "text": "Big Data" },
