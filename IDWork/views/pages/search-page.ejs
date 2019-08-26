@@ -168,7 +168,7 @@
         <div class="container">
           <img class="resource-item-img" src=<%= article.img_url%> />
           <div class="ten columns">
-            <a class="button resource-item" href="<%= article.article_url%>">
+            <a class="button resource-item" href="<%= article.article_url%>" target="_blank">
               <%= article.title %>
             </a>
             <div style="margin-left: 3%;">by <em><%= article.author%></em></div>
@@ -192,7 +192,7 @@
         <div class="container">
           <img class="resource-item-img course-img" src=<%= course.url_image%> />
           <div class="ten columns">
-            <a class="button resource-item" href="<%= course.url%>">
+            <a class="button resource-item" href="<%= course.url%>" target="_blank">
               <%= course.title %>
             </a>
             <div style="margin-left: 2%;"><em>Difficulty</em>:<strong> <%= course.difficulty%></strong></div>
@@ -218,7 +218,7 @@
         <% if(repo != null) { %>
         <div class="container">
           <div class="ten columns">
-            <a class="button resource-item" href="<%= repo.url%>">
+            <a class="button resource-item" href="<%= repo.url%>" target="_blank">
               <%= repo.name %>
             </a>
             <div class="job-icons" style="margin-left: 2.5%;">
