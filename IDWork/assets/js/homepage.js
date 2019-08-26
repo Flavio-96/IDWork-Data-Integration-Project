@@ -305,7 +305,6 @@ $(document).ready(function() {
     { id: "maven", text: "Maven" },
     { id: "mobile", text: "Mobile" },
     { id: "monero", text: "Monero" },
-    { id: "mongodb", text: "MongoDB" },
     { id: "mongoose", text: "Mongoose" },
     { id: "nativescript", text: "NativeScript" },
     { id: "natural language processing", text: "Natural language processing" },
