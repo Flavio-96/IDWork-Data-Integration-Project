@@ -34,10 +34,18 @@ module.exports = {
     var value = await redis.leaseConnection(async (db) => {
       let listLength = await (util.promisify(db.llen).bind(db))(key);
 
-      if(listLength == 10)
-        await (util.promisify(db.rpop).bind(db))(key);
-      
-      await (util.promisify(db.lpush).bind(db))(key, JSON.stringify(search));
+      let lastAdded =  await (util.promisify(db.lrange).bind(db))(key, 0, 0);
+
+      let searchStringfied = JSON.stringify(search);
+
+      if(searchStringfied != lastAdded){
+        
+        if(listLength == 10){
+          await (util.promisify(db.rpop).bind(db))(key);
+        }
+
+        await (util.promisify(db.lpush).bind(db))(key, searchStringfied);
+      }
     });
 
   },
