@@ -6135,6 +6135,11 @@ label.upload-btn input[type="file"] {
   .resume-titlebar .resumes-list-content {
     margin-left: 0px;
   }
+
+   /* Style the tab */
+ .tab {
+  display: block;
+}
 }
 
 /* ------------------------------------------------------------------- */
