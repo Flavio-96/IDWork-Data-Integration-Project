@@ -473,13 +473,15 @@ $(document).ready(function() {
     data: keywords,
     theme: "classic",
     width: "resolve",
-    minimumResultsForSearch: 10
+    minimumResultsForSearch: 10,
+    sorter: data => data.sort((a, b) => a.text.localeCompare(b.text))
   });
 
   $("#city").select2({
     data: cities,
     theme: "classic",
     width: "resolve",
-    maximumResultsForSearch: 10
+    maximumResultsForSearch: 10,
+    sorter: data => data.sort((a, b) => a.text.localeCompare(b.text))
   });
 });
