@@ -8,7 +8,7 @@
         <div class="search-container">
           <!-- Form -->
           <h2>Find job</h2>
-          <form method="GET" action="/search">
+          <form method="GET" action="/search" id="search-form">
             <div>
               <label>Keyword </label>
               <select
@@ -28,7 +28,7 @@
               ></select>
             </div>
 
-            <button type="submit" value="Submit"><i class="fa fa-search"></i></button>
+            <button id ="form-button" type="button" onclick="loaderInitialization()"><i class="fa fa-search"></i></button>
           </form>
 
           <!-- Announce -->

@@ -9,6 +9,7 @@ $(document).ready(function() {
     { id: "cordova", text: "Cordova" },
     { id: "react native", text: "React Native" },
     { id: "linux", text: "Linux" },
+    { id: "java", text: "Java" },
     { id: "macos", text: "macOS" },
     { id: "watchos", text: "watchOS" },
     { id: "jvm", text: "JVM" },
@@ -465,3 +466,9 @@ $(document).ready(function() {
     sorter: data => data.sort((a, b) => a.text.localeCompare(b.text))
   });
 });
+
+function loaderInitialization(){
+  $('#loader').css({'display': 'block'});
+  $("#overlay").css({ 'display':'block'});
+  $("#search-form").submit();
+}
