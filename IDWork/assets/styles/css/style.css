@@ -3628,6 +3628,7 @@ input[type="submit"] .job-input {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #58ba2b;
+  display: flex;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -3640,6 +3641,7 @@ input[type="submit"] .job-input {
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 1em;
+  flex-grow: 1;
 }
 
 /* Change background color of buttons on hover */
