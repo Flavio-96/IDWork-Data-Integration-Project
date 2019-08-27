@@ -4,7 +4,7 @@ crons:function(){
     var jsonArray = [];
 
     // add one function for every schedule needed
-    jsonArray.push({interval:`0 */24 * * *`,method:`schedule_places`});
+    jsonArray.push({interval:`0 0 1 * *`,method:`schedule_places`});
     jsonArray.push({interval:`0 */24 * * *`,method:`schedule_courses`});
 
     return jsonArray;
