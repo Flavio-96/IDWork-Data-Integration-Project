@@ -465,6 +465,8 @@ $(document).ready(function() {
     maximumResultsForSearch: 10,
     sorter: data => data.sort((a, b) => a.text.localeCompare(b.text))
   });
+
+
 });
 
 function loaderInitialization(){
