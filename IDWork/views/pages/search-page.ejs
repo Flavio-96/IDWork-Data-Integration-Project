@@ -41,7 +41,7 @@
 
         <ul class="job-list full">
           <%if(jobs_info.ads.length === 0) { %>
-            <div>No jobs found!</div>
+            <div class='notfound'>No jobs found!</div>
           <%}else{%>
           <% var i = 0; 
           for(let job of jobs_info.ads) {%>
@@ -164,7 +164,7 @@
       <div id="Articles" class="tabcontent">
         <h1>Articles</h1>
         <%if(articles.length === 0) { %>
-        <div>No articles found!</div>
+        <div class='notfound'>No articles found!</div>
         <%}else{%>
         <ul class="job-list full">
           <%for (let article of articles) {%>
@@ -186,7 +186,7 @@
       <div id="Courses" class="tabcontent">
         <h1>Courses</h1>
         <%if(courses.length === 0) { %>
-          <div>No courses found!</div>
+          <div class='job-list full'>No courses found!</div>
         <%}else{%>
         <ul class="job-list full">
           <% for(let course of courses) {%>
@@ -213,7 +213,7 @@
   <div id="Repositories" class="tabcontent">
     <h1>Repositories</h1>
     <%if(repositories.length === 0) { %>
-      <div>No repositories found!</div>
+      <div class='notfound'>No repositories found!</div>
     <%}else{%>
     <ul class="job-list full">
           <% for(let repo of repositories) {%>
