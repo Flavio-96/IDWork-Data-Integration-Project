@@ -465,6 +465,8 @@ $(document).ready(function() {
     maximumResultsForSearch: 10,
     sorter: data => data.sort((a, b) => a.text.localeCompare(b.text))
   });
+
+
 });
 
 function loaderInitialization(){
@@ -472,3 +474,8 @@ function loaderInitialization(){
   $("#overlay").css({ 'display':'block'});
   $("#search-form").submit();
 }
+
+window.addEventListener("hashchange", function(e) {
+  $('#loader').css({'display': 'none'});
+  $("#overlay").css({ 'display':'none'});
+})
