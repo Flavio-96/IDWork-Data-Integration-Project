@@ -3656,7 +3656,7 @@ input[type="submit"] .job-input {
 
 /* Style the tab content */
 .tabcontent {
-  height: 95%;
+  height: 80vh;
   display: none;
   padding: 6px 12px;
   border: 1px solid #ccc;
@@ -6163,7 +6163,7 @@ img.resource-item-img.course-img {
   height: 150px;
 }
 
-.notfound {
+.fixedheight {
   height: 50vh;
 }
 

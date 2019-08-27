@@ -1,91 +1,122 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+
+  <title>IDWork</title>
+  <html lang="en">
+  <!--<![endif]-->
+
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
-
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8" />
     <title>IDWork</title>
-    <html lang="en">
-      <!--<![endif]-->
-      <head>
-        <!-- Basic Page Needs
+
+    <!-- Mobile Specific Metas
   ================================================== -->
-        <meta charset="utf-8" />
-        <title>IDWork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-        <!-- Mobile Specific Metas
+    <!-- CSS
   ================================================== -->
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
+    <link rel="stylesheet" href="styles/css/style.css" />
+    <link rel="stylesheet" href="styles/css/loader.css" />
+    <link rel="stylesheet" href="styles/css/colors/green.css" id="colors" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="styles/css/select.css" />
 
-        <!-- CSS
-  ================================================== -->
-        <link rel="stylesheet" href="styles/css/style.css" />
-        <link rel="stylesheet" href="styles/css/loader.css" />
-        <link rel="stylesheet" href="styles/css/colors/green.css" id="colors" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="styles/css/select.css"
+  </head>
 
-        />
-
-      </head>
-
-      <body>
-        <div id="body-content">
-          <!-- Header
+<body>
+  <div id="body-content">
+    <!-- Header
       ================================================== -->
-          <header>
-            <div class="container">
-              <div class="sixteen columns">
-                <!-- Logo -->
-                <div id="logo">
-                  <h1>
-                    <a href="/">
-                      <img src="images/logo/logo3.png" alt="Work Scout"/>
-                    </a>
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </header>
+    <header>
+      <div class="container">
+        <div class="sixteen columns">
+          <!-- Logo -->
+          <div id="logo">
+            <h1>
+              <a href="/">
+                <img src="images/logo/logo3.png" alt="Work Scout" />
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
 
-          <%- body %>
+    <%- body %>
 
-          <!-- Footer
+    <!-- Footer
       ================================================== -->
-          <div class="margin-top-0"></div>
+    <div class="margin-top-0"></div>
 
-          <div id="footer">
-            <!-- Main -->
-            <div class="container">
-                <h4>About</h4>
-                <p>
-                  This project was designed and implemented by <a href="https://github.com/Flavio-96">Flavio Esposito</a> and <a href="https://github.com/AAndonio">Antonio Vivone</a> for the data integration course taught by Gennaro Costagliola.
-                </p>
-                <p>
-                  A.A. 2018/19, Università degli studi di Salerno.
-                </p>
-            </div>
+    <div id="footer">
+      <!-- Main -->
+      <div class="container">
+        <div class="ten columns">
+          <h4>About</h4>
+          <p>
+            This project was designed and implemented by <a href="https://github.com/Flavio-96">Flavio Esposito</a> and
+            <a href="https://github.com/AAndonio">Antonio Vivone</a> for the data integration course taught by Gennaro
+            Costagliola.
+          </p>
+          <p>
+            A.A. 2018/19, Università degli studi di Salerno.
+          </p>
+        </div>
+        <div class="six columns">
+          <a href="https://github.com/Flavio-96/IDWork-Progetto-IDW-18-19"><i class="fa fa-github fa-5x" style="float: right; display: block;"></i></a>
+          
+        </div>
+      </div>
 
-            <!-- Bottom -->
-            <div class="container">
-              <div class="footer-bottom">
-                <div class="copyrights">
-                  © Copyright 2019 by <a href="#">IDWork</a>.
-                </div>
-              </div>
-            </div>
+      <!-- Bottom -->
+      <div class="container">
+        <div class="footer-bottom">
+          <div class="copyrights">
+            © Copyright 2019 by <a href="#">IDWork</a>.
           </div>
-          <div id="overlay">
+        </div>
+      </div>
+    </div>
+    <div id="overlay">
 
-          </div>
+    </div>
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+  </div>
+  <div id="loader">
+    <div class="gear one">
+      <svg id="blue" viewbox="0 0 100 100" fill="#181818">
+        <path
+          d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
+        </path>
+      </svg>
+    </div>
+    <div class="gear two">
+      <svg id="pink" viewbox="0 0 100 100" fill="#58ba2b">
+        <path
+          d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
+        </path>
+      </svg>
+    </div>
+    <div class="gear three">
+      <svg id="yellow" viewbox="0 0 100 100" fill="#909090">
+        <path
+          d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</body>
+
+</html>
+</head>
 
           <!-- Back To Top Button -->
           <div id="backtotop"><a href="#"></a></div>

@@ -48,9 +48,7 @@
         <div class="four columns">
           <ul>
             <% recentSearches.forEach((search) => { %>
-
-            
-            <li><a href="/search?category=<%= search.keyword.replace(/[#]/g, '%23')%>&place=<%=search.city%>"><%= search.keyword%> in <%=search.city%></a></li>
+            <li><a onclick="loaderInitializationRecentSearches()" href="/search?category=<%= search.keyword.replace(/[#]/g, '%23')%>&place=<%=search.city%>"><%= search.keyword%> in <%=search.city%></a></li>
             <% }) %>
           </ul>
         </div>

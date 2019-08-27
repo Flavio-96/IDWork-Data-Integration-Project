@@ -39,9 +39,9 @@
       </div>
       <div class="twelve columns">
 
-        <ul class="job-list full">
+        <ul class="job-list full fixedheight">
           <%if(jobs_info.ads.length === 0) { %>
-            <div class='notfound'>No jobs found!</div>
+            <div class='fixedheight'>No jobs found!</div>
           <%}else{%>
           <% var i = 0; 
           for(let job of jobs_info.ads) {%>
@@ -164,9 +164,9 @@
       <div id="Articles" class="tabcontent">
         <h1>Articles</h1>
         <%if(articles.length === 0) { %>
-        <div class='notfound'>No articles found!</div>
+        <div class='fixedheight'>No articles found!</div>
         <%}else{%>
-        <ul class="job-list full">
+        <ul class="job-list full fixedheight">
           <%for (let article of articles) {%>
           <li>
             <div class="container">
@@ -188,7 +188,7 @@
         <%if(courses.length === 0) { %>
           <div class='job-list full'>No courses found!</div>
         <%}else{%>
-        <ul class="job-list full">
+        <ul class="job-list full fixedheight">
           <% for(let course of courses) {%>
 
           <li>
@@ -213,9 +213,9 @@
   <div id="Repositories" class="tabcontent">
     <h1>Repositories</h1>
     <%if(repositories.length === 0) { %>
-      <div class='notfound'>No repositories found!</div>
+      <div class='fixedheight'>No repositories found!</div>
     <%}else{%>
-    <ul class="job-list full">
+    <ul class="job-list full fixedheight">
           <% for(let repo of repositories) {%>
           <li style="padding-bottom: 20px;">
             <div class="container">

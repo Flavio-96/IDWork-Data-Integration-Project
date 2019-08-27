@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var keywords = [
+    { id: ".net", text: ".NET" },
     { id: "node.js", text: "Node.js" },
     { id: "frontend development", text: "Frontend Development" },
     { id: "ios", text: "iOS" },
@@ -272,7 +273,6 @@ $(document).ready(function() {
     { id: "deployment", text: "Deployment" },
     { id: "django", text: "Django" },
     { id: "documentation", text: "Documentation" },
-    { id: ".net", text: ".NET" },
     { id: "eslint", text: "ESLint" },
     { id: "express", text: "Express" },
     { id: "framework", text: "Framework" },
@@ -323,6 +323,7 @@ $(document).ready(function() {
   ];
 
   let cities = [
+    { id: "albany, ny", text: "Albany, NY" },
     { id: "austin, tx", text: "Austin, TX" },
     { id: "denver, co", text: "Denver, CO" },
     { id: "colorado springs, co", text: "Colorado Springs, CO" },
@@ -350,7 +351,6 @@ $(document).ready(function() {
     { id: "melbourne, fl", text: "Melbourne, FL" },
     { id: "phoenix, az", text: "Phoenix, AZ" },
     { id: "boston, ma", text: "Boston, MA" },
-    { id: "albany, ny", text: "Albany, NY" },
     { id: "lexington-fayette, ky", text: "Lexington-Fayette, KY" },
     { id: "houston, tx", text: "Houston, TX" },
     { id: "winston-salem, nc", text: "Winston-Salem, NC" },
@@ -479,3 +479,7 @@ window.addEventListener("hashchange", function(e) {
   $('#loader').css({'display': 'none'});
   $("#overlay").css({ 'display':'none'});
 })
+function loaderInitializationRecentSearches(){
+  $('#loader').css({'display': 'block'});
+  $("#overlay").css({ 'display':'block'});
+}
