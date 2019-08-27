@@ -474,3 +474,8 @@ function loaderInitialization(){
   $("#overlay").css({ 'display':'block'});
   $("#search-form").submit();
 }
+
+window.addEventListener("hashchange", function(e) {
+  $('#loader').css({'display': 'none'});
+  $("#overlay").css({ 'display':'none'});
+})
