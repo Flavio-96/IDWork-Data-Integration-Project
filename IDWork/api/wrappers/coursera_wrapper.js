@@ -64,9 +64,7 @@ async function getCourses(keyword) {
             url_image: imageUrl,
             url: `https://www.coursera.org${objectUrl}`,
           };
-
-          console.log(refinedCourse)
-
+          
           refinedCourses.push(refinedCourse);
         }
       });
