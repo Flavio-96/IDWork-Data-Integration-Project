@@ -23,7 +23,7 @@ ___
 È stata realizzata una pagina di presentazione del progetto in cui è presente la **documentazione**, le **informazioni del progetto** e un breve **video demo**.\
 Spero apprezziate il nostro lavoro.
 
-[Presentazione web page](https://flavio-96.github.io/IDWork-Progetto-IDW-18-19/)
+[Presentazione web page](https://flavio-96.github.io/IDWork-Data-Integration-Project/)
 
 Altre informazioni sono presenti qui nel README, ma consigliamo la visione della web page e in particolare della demo.
 
