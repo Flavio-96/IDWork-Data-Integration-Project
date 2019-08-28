@@ -13,12 +13,19 @@
     - [1.4.5. Medium](#145-medium)
     - [1.4.6. Hacker Noon](#146-hacker-noon)
     - [1.4.7. Coursera](#147-coursera)
-    - [1.4.7. Udacity](#147-udacity)
+    - [1.4.8. Udacity](#148-udacity)
     - [1.4.9. GitHub](#149-github)
   - [1.5. Cache](#15-cache)
 
 ___
 # 1. IDWork - Data integration	
+
+È stata realizzata una pagina di presentazione del progetto in cui è presente la **documentazione**, le **informazioni del progetto** e un breve **video demo**.\
+Spero apprezziate il nostro lavoro.
+
+[Presentazione web page](https://flavio-96.github.io/IDWork-Progetto-IDW-18-19/)
+
+Altre informazioni sono presenti qui nel README, ma consigliamo la visione della web page e in particolare della demo.
 
 ## 1.1. Nome Scelto: **IDWork\****
 
@@ -127,7 +134,7 @@ Hacker Noon è un tech blog indipendente che permette a professionisti del setto
 ### 1.4.7. Coursera
 Coursera è una piattaforma statunitense che opera nel campo delle tecnologie didattiche fondata dai professori della Stanford Andrew Nge Daphne Koller, che offre corsi online (MOOC), specializzazioni e corsi di studioCourseracollabora con varie università e i servizi disponibili sono certificati
 
-### 1.4.7. Udacity
+### 1.4.8. Udacity
 Udacity è un'organizzazione educativa che offre corsi online aperti (MOOC)Offrelezioni video con sottotitoli e quiz integrati, promuovendo la metodologia del 'learning by doing'
 
 ### 1.4.9. GitHub
