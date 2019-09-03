@@ -39,7 +39,7 @@ module.exports = {
 
                 let oggettoJSON = { 0: articles };
 
-                let expiresIn = 1000 * 60 * 60 * 24; //One day in milliseconds
+                let expiresIn = 1000 * 60 * 60; //One hour in milliseconds
 
                 // Convert `expiresIn` (which is expressed in milliseconds) to seconds,
                 // because unlike JavaScript, Redis likes to work with whole entire seconds.
