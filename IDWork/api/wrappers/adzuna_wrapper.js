@@ -11,7 +11,7 @@ const baseURL = "http://api.adzuna.com/v1/api/jobs/us/search/1";
 const baseURLDescription = "https://www.adzuna.com/details/";
 
 const category = "it-jobs";
-const results_per_page = 500;
+const results_per_page = 100000;
 
 module.exports.getJobsByLocation = getJobsByLocation;
 module.exports.getFullDescription = getFullDescription;
@@ -74,7 +74,7 @@ async function getJobsByLocation(keyword, location) {
 
       }));
 
-      return refinedJobs;
+      return {jobs: refinedJobs, category: keyword};
     }
   } catch (err) {
     console.log(`Adzuna wrapper error: ${err}`);

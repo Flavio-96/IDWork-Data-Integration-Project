@@ -51,13 +51,13 @@ module.exports = {
     city = city[0];
 
     //Retrieve articles info
-    let articles = await Article.findByKeyword(category);
+    let articles = await Article.findByKeyword(jobs.category);
 
     //Retrieve courses info
-    let courses = await Course.findByKeyword(category);
+    let courses = await Course.findByKeyword(jobs.category);
 
     //Retrieve courses info
-    let repositories = await Repository.findByKeyword(category);
+    let repositories = await Repository.findByKeyword(jobs.category);
 
     this.req.session.jobs = jobs;   // returned from a database
 
