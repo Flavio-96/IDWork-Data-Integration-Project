@@ -14,7 +14,7 @@
     "csv-parser": "^2.3.0",
     "date-diff": "^0.2.1",
     "dotenv": "^8.0.0",
-    "grunt": "1.0.4",
+    "grunt": "1.5.2",
     "jquery": "^3.4.1",
     "line-reader": "^0.4.0",
     "module-alias": "^2.2.1",
